@@ -53,6 +53,7 @@ remove_tag "$my_path/DefaultDark-System/res/values/styles.xml" "style" "Theme.De
 remove_tag "$my_path/DefaultDark-System/res/values/styles.xml" "style" "Widget.DeviceDefault.*?Light.?"
 remove_tag "$my_path/DefaultDark-SystemUI/res/values/colors.xml" "color" "notification_guts_.*?"
 rm "$my_path/DefaultDark-SystemUI/res/color/notification_guts"*
+remove_tag "$my_path/DefaultDark-Settings/res/values/colors.xml" "color" "bluetooth_dialog_text_color"
 
 # Let's not theme PackageInstaller - people can install full theme if they want it
 rm "$my_path/DefaultDark-System/res/drawable"**/perm*

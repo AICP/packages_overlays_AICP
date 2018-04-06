@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.NotificationGuts.Header" parent="@android:style/TextAppearance">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">roboto-regular</item>
+        <item name="android:textColor">#b3ffffff</item>
+    </style>
+
+    <style name="TextAppearance.SwitchBar" parent="@android:style/TextAppearance.Material.Title">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="ThemeOverlay.SwitchBar.Secondary" parent="@android:style/ThemeOverlay">
+        <!-- Disable this, doesn't look good (black on dark notification guts
+        <item name="android:colorAccent">?android:attr/colorSecondary</item>
+        -->
+    </style>
+
+    <!-- Default systemui_theme from oreo is fine. Nougat needs it, see type2 variants -->
+    <!--
+    
+    -->
+
+    <!-- o8.1 -->
+    
+
+    <!-- Phyisical Keyboard Dialog style -->
+    <style name="KeyboardShortcutsDialog" parent="@android:style/Theme.Material" />
+</resources>

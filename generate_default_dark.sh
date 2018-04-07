@@ -8,7 +8,7 @@ my_path="$(dirname "$0")"
 dd_path="../../../external/DefaultDarkTheme-oms"
 
 if [ ! -d "$dd_path" ]; then
-    echo "Cannon access $dd_path"
+    echo "Cannot access $dd_path"
     exit 1
 fi
 

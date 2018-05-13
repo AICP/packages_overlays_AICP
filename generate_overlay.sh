@@ -165,6 +165,16 @@ function generate_overlay() {
     done
 }
 
+function override_package() {
+    # Add package overwrite to overlay makefile
+    # Usage:
+    # overwrite_package <overlay dir> <overrides package>
+    overlay="$1"
+    package="$2"
+    cat "$overlay/Android.mk" | tr '\n' '\r' | sed 's/\(\r\r.*\r\r\)/\1LOCAL_OVERRIDES_PACKAGES := '"$package"'\r\r/'  | tr '\r' '\n' > "$overlay/Android2.mk"
+    mv "$overlay/Android2.mk" "$overlay/Android.mk"
+}
+
 if [ ! -z "$1" ]; then
     # Direct script usage
     generate_overlay $@

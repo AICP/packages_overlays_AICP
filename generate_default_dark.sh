@@ -95,5 +95,7 @@ generate_overlay "$overlay_path" "$my_path/DefaultBlack-System" "android" "$over
 generate_overlay "$overlay_path" "$my_path/DefaultBlack-SystemUI" "com.android.systemui" "$overlay_package_black" 2:android_8_black || exit $?
 fix_dd DefaultBlack
 
+override_package "$my_path/DefaultDark-SystemUI" "SysuiDarkThemeOverlay"
+
 # Clean up theme variants
 "$dd_path/generate_type3/clean.sh" > /dev/null

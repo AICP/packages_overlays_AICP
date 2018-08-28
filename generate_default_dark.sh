@@ -43,6 +43,7 @@ fix_dd() {
         # Let's be less aggressive making everything dark to avoid readability issues
         remove_tag "$my_path/$basename-System/res/values/styles.xml" "style" "Theme.DeviceDefault.*?Light.?"
         remove_tag "$my_path/$basename-System/res/values/styles.xml" "style" "Widget.DeviceDefault.*?Light.?"
+        remove_tag "$my_path/$basename-System/res/values/styles.xml" "style" "TextAppearance.Material.Notification.Info"
 
         # Let's not theme PackageInstaller - people can install full theme if they want it
         rm "$my_path/$basename-System/res/drawable"**/perm*

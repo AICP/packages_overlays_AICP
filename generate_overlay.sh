@@ -79,6 +79,7 @@ function generate_overlay() {
     echo '' >> $makefile
     echo "LOCAL_RRO_THEME := $name" >> $makefile
     echo 'LOCAL_CERTIFICATE := platform' >> $makefile
+    echo 'LOCAL_SDK_VERSION := current' >> $makefile
     echo 'LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res' >> $makefile
     echo "LOCAL_PACKAGE_NAME := $name" >> $makefile
     echo '' >> $makefile

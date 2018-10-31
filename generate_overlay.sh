@@ -12,7 +12,7 @@ function remove_tag() {
 
 function generate_overlay() {
     # Usage:
-    # generate_overlay <source_dir> <target_dir> <target_package> <overlay_package> [variants...]
+    # generate_overlay <source_dir> <target_dir> <target_package> <overlay_package> <append_to_makefile> [variants...]
     # variants can be
     #   1:a:<name>
     #   1:b:<name>
@@ -51,13 +51,19 @@ function generate_overlay() {
         exit 1
     fi
 
+    append_to_makefile="$5"
+    if [ -z "$append_to_makefile" ]; then
+        echo "Missing makefile to append product package to!"
+        exit 1
+    fi
+
     source_overlay="$source_dir/$target_package"
     if [ ! -d "$source_overlay" ]; then
         echo "No overlay found for package $target_package!"
         exit 1
     fi
 
-    variants="${@:5}"
+    variants="${@:6}"
 
 
     # --- Target direcory ---
@@ -93,6 +99,13 @@ function generate_overlay() {
     echo '        android:priority="1" />' >> $manifest
     echo >> $manifest
     echo '</manifest>' >> $manifest
+
+
+    # --- Product packages Makefile ---
+    if [ ! -f "$append_to_makefile" ]; then
+        echo "PRODUCT_PACKAGES += \\" > "$append_to_makefile"
+    fi
+    echo "    $name \\" >> "$append_to_makefile"
 
 
     # --- Resources ---

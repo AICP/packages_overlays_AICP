@@ -23,7 +23,7 @@ fi
 overlay_path="$dd_path/app/src/main/assets/overlays"
 overlay_package="com.aicp.overlay.defaultdark"
 overlay_package_black="com.aicp.overlay.defaultblack"
-product_packages_makefile="$my_path/product_packages.mk"
+product_packages_makefile="$my_path/product_packages_dark.mk"
 
 fix_dd() {
     basename="$1"

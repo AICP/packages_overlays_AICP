@@ -23,6 +23,7 @@ fi
 overlay_path="$dd_path/app/src/main/assets/overlays"
 overlay_package="com.aicp.overlay.defaultdark"
 overlay_package_black="com.aicp.overlay.defaultblack"
+product_packages_makefile="$my_path/product_packages.mk"
 
 fix_dd() {
     basename="$1"
@@ -61,14 +62,17 @@ fix_dd() {
 
 }
 
-generate_overlay "$overlay_path" "$my_path/DefaultDark-System" "android" "$overlay_package" || exit $?
-generate_overlay "$overlay_path" "$my_path/DefaultDark-SystemUI" "com.android.systemui" "$overlay_package" || exit $?
-generate_overlay "$overlay_path" "$my_path/DefaultDark-Settings" "com.android.settings" "$overlay_package" || exit $?
-generate_overlay "$overlay_path" "$my_path/DefaultDark-Calculator" "com.android.calculator2" "$overlay_package" || exit $?
+# Clean previous makefile
+rm -f "$product_packages_makefile"
+
+generate_overlay "$overlay_path" "$my_path/DefaultDark-System" "android" "$overlay_package" "$product_packages_makefile" || exit $?
+generate_overlay "$overlay_path" "$my_path/DefaultDark-SystemUI" "com.android.systemui" "$overlay_package" "$product_packages_makefile" || exit $?
+generate_overlay "$overlay_path" "$my_path/DefaultDark-Settings" "com.android.settings" "$overlay_package" "$product_packages_makefile" || exit $?
+generate_overlay "$overlay_path" "$my_path/DefaultDark-Calculator" "com.android.calculator2" "$overlay_package" "$product_packages_makefile" || exit $?
 fix_dd DefaultDark
 
-generate_overlay "$overlay_path" "$my_path/DefaultBlack-System" "android" "$overlay_package_black" 1:b:More_black_backgrounds || exit $?
-generate_overlay "$overlay_path" "$my_path/DefaultBlack-SystemUI" "com.android.systemui" "$overlay_package_black" 1:a:Black_QS || exit $?
+generate_overlay "$overlay_path" "$my_path/DefaultBlack-System" "android" "$overlay_package_black" "$product_packages_makefile" 1:b:More_black_backgrounds || exit $?
+generate_overlay "$overlay_path" "$my_path/DefaultBlack-SystemUI" "com.android.systemui" "$overlay_package_black" "$product_packages_makefile" 1:a:Black_QS || exit $?
 fix_dd DefaultBlack
 
 override_package "$my_path/DefaultDark-SystemUI" "SysuiDarkThemeOverlay"

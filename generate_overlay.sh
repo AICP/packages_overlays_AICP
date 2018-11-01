@@ -12,7 +12,7 @@ function remove_tag() {
 
 function generate_overlay() {
     # Usage:
-    # generate_overlay <source_dir> <target_dir> <target_package> <overlay_package> <append_to_makefile> [variants...]
+    # generate_overlay <source_dir> <target_dir> <target_package> <overlay_package> <dependency_package> <append_to_makefile> [variants...]
     # variants can be
     #   1:a:<name>
     #   1:b:<name>
@@ -51,7 +51,10 @@ function generate_overlay() {
         exit 1
     fi
 
-    append_to_makefile="$5"
+    # This one actually can be empty, when we only compile against framework
+    dependency_package="$5"
+
+    append_to_makefile="$6"
     if [ -z "$append_to_makefile" ]; then
         echo "Missing makefile to append product package to!"
         exit 1
@@ -63,7 +66,7 @@ function generate_overlay() {
         exit 1
     fi
 
-    variants="${@:6}"
+    variants="${@:7}"
 
 
     # --- Target direcory ---
@@ -74,6 +77,12 @@ function generate_overlay() {
     # --- Makefile ---
     makefile="$target_dir/Android.mk"
 
+    if [ ! -z "$dependency_package" ]; then
+        dependency_res='$(TARGET_OUT_INTERMEDIATES)/APPS/'"$dependency_package"'_intermediates/package-res.apk'
+    else
+        dependency_res=
+    fi
+
     echo 'LOCAL_PATH:= $(call my-dir)' > $makefile
     echo 'include $(CLEAR_VARS)' >> $makefile
     echo '' >> $makefile
@@ -82,6 +91,10 @@ function generate_overlay() {
     echo 'LOCAL_SDK_VERSION := current' >> $makefile
     echo 'LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res' >> $makefile
     echo "LOCAL_PACKAGE_NAME := $name" >> $makefile
+    if [ ! -z "$dependency_res" ]; then
+        echo "LOCAL_RESOURCE_DEPENDENCIES := $dependency_res" >> $makefile
+        echo "LOCAL_AAPT_FLAGS := -I $dependency_res" >> $makefile
+    fi
     echo '' >> $makefile
     echo 'include $(BUILD_RRO_SYSTEM_PACKAGE)' >> $makefile
 

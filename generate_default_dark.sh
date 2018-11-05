@@ -55,55 +55,55 @@ rm -f "$product_packages_makefile"
 
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-System" "android" \
-                     "$overlay_package" "" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-SystemUI" "com.android.systemui" \
-                     "$overlay_package" "SystemUI" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "SystemUI" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-Calculator" "com.android.calculator2" \
-                     "$overlay_package" "ExactCalculator" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "ExactCalculator" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-Contacts" "com.android.contacts" \
-                     "$overlay_package" "Contacts" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "Contacts" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-DeskClock" "com.android.deskclock" \
-                     "$overlay_package" "DeskClock" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "DeskClock" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-Dialer" "com.android.dialer" \
-                     "$overlay_package" "Dialer" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "Dialer" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-DocumentsUI" "com.android.documentsui" \
-                     "$overlay_package" "DocumentsUI" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "DocumentsUI" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-Messaging" "com.android.messaging" \
-                     "$overlay_package" "messaging" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "messaging" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-PackageInstaller" "com.android.packageinstaller" \
-                     "$overlay_package" "PackageInstaller" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "PackageInstaller" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-Phone" "com.android.phone" \
-                     "$overlay_package" "com.android.phone.common" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "com.android.phone.common" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-Telecom" "com.android.server.telecom" \
-                     "$overlay_package" "Telecom" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "Telecom" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-SettingsIntelligence" "com.android.settings.intelligence" \
-                     "$overlay_package" "SettingsIntelligence" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "SettingsIntelligence" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-Settings" "com.android.settings" \
-                     "$overlay_package" "Settings" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "Settings" "$product_packages_makefile" 3:Dark_notifications || exit $?
 
 fix_dd DefaultDark
 
 
 generate_overlay "$overlay_path" "$my_path/DefaultBlack-System" "android" \
                      "$overlay_package_black" "" "$product_packages_makefile" \
-                     1:b:More_black_backgrounds || exit $?
+                     1:b:More_black_backgrounds 3:Black_notifications || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultBlack-SystemUI" "com.android.systemui" \
                      "$overlay_package_black" "SystemUI" "$product_packages_makefile" \
-                     1:a:Black_QS || exit $?
+                     1:a:Black_QS 3:Black_notifications || exit $?
 
 fix_dd DefaultBlack
 

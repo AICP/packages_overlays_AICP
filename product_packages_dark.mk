@@ -14,3 +14,11 @@ PRODUCT_PACKAGES += \
     DefaultDark-Settings \
     DefaultBlack-System \
     DefaultBlack-SystemUI \
+    DefaultDarkNotif-System \
+    DefaultDarkNotif-SystemUI \
+    DefaultBlackNotif-System \
+    DefaultBlackNotif-SystemUI \
+    DefaultDarkTransparent-System \
+    DefaultDarkTransparent-SystemUI \
+    DefaultBlackTransparent-System \
+    DefaultBlackTransparent-SystemUI \

@@ -22,7 +22,11 @@ fi
 
 overlay_path="$dd_path/app/src/main/assets/overlays"
 overlay_package="com.aicp.overlay.defaultdark"
+overlay_package_dark_notif="com.aicp.overlay.defaultdark.notif"
 overlay_package_black="com.aicp.overlay.defaultblack"
+overlay_package_black_notif="com.aicp.overlay.defaultblack.notif"
+overlay_package_dark_transparent="com.aicp.overlay.defaultdark.transparent"
+overlay_package_black_transparent="com.aicp.overlay.defaultblack.transparent"
 product_packages_makefile="$my_path/product_packages_dark.mk"
 
 fix_dd() {
@@ -54,12 +58,16 @@ fix_dd() {
 rm -f "$product_packages_makefile"
 
 
+# ----- Default dark base -----
+
 generate_overlay "$overlay_path" "$my_path/DefaultDark-System" "android" \
                      "$overlay_package" "" "$product_packages_makefile" || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-SystemUI" "com.android.systemui" \
                      "$overlay_package" "SystemUI" "$product_packages_makefile" || exit $?
 
+
+# ----- Dark common -----
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-Calculator" "com.android.calculator2" \
                      "$overlay_package" "ExactCalculator" "$product_packages_makefile" || exit $?
@@ -97,6 +105,8 @@ generate_overlay "$overlay_path" "$my_path/DefaultDark-Settings" "com.android.se
 fix_dd DefaultDark
 
 
+# ----- Black base -----
+
 generate_overlay "$overlay_path" "$my_path/DefaultBlack-System" "android" \
                      "$overlay_package_black" "" "$product_packages_makefile" \
                      1:b:More_black_backgrounds || exit $?
@@ -106,6 +116,63 @@ generate_overlay "$overlay_path" "$my_path/DefaultBlack-SystemUI" "com.android.s
                      1:a:Black_QS || exit $?
 
 fix_dd DefaultBlack
+
+
+
+# ----- Dark notif base -----
+
+generate_overlay "$overlay_path" "$my_path/DefaultDarkNotif-System" "android" \
+                     "$overlay_package_dark_notif" "" "$product_packages_makefile" \
+                     3:Dark_notifications || exit $?
+
+generate_overlay "$overlay_path" "$my_path/DefaultDarkNotif-SystemUI" "com.android.systemui" \
+                     "$overlay_package_dark_notif" "SystemUI" "$product_packages_makefile" \
+                     3:Dark_notifications || exit $?
+
+fix_dd DefaultDarkNotif
+
+
+# ----- Black notif base -----
+
+generate_overlay "$overlay_path" "$my_path/DefaultBlackNotif-System" "android" \
+                     "$overlay_package_black_notif" "" "$product_packages_makefile" \
+                     1:b:More_black_backgrounds 3:Black_notifications || exit $?
+
+generate_overlay "$overlay_path" "$my_path/DefaultBlackNotif-SystemUI" "com.android.systemui" \
+                     "$overlay_package_black_notif" "SystemUI" "$product_packages_makefile" \
+                     1:a:Black_QS 3:Black_notifications|| exit $?
+
+fix_dd DefaultBlackNotif
+
+
+
+# ----- Dark transparent base -----
+
+generate_overlay "$overlay_path" "$my_path/DefaultDarkTransparent-System" "android" \
+                     "$overlay_package_dark_transparent" "" "$product_packages_makefile" \
+                     1b:Dark_Transparent_backgrounds 3:Dark_transparent_notifications || exit $?
+
+generate_overlay "$overlay_path" "$my_path/DefaultDarkTransparent-SystemUI" "com.android.systemui" \
+                     "$overlay_package_dark_transparent" "SystemUI" "$product_packages_makefile" \
+                     1:a:Dark_transparent_QS 3:Dark_transparent_notifications || exit $?
+
+fix_dd DefaultDarkTransparent
+
+
+# ----- Black transparent base -----
+
+generate_overlay "$overlay_path" "$my_path/DefaultBlackTransparent-System" "android" \
+                     "$overlay_package_black_transparent" "" "$product_packages_makefile" \
+                     1:b:More_black_transparent_backgrounds 3:Black_transparent_notifications || exit $?
+
+generate_overlay "$overlay_path" "$my_path/DefaultBlackTransparent-SystemUI" "com.android.systemui" \
+                     "$overlay_package_black_transparent" "SystemUI" "$product_packages_makefile" \
+                     1:a:Black_transparent_QS 3:Black_transparent_notifications|| exit $?
+
+fix_dd DefaultBlackTransparent
+
+
+
 
 override_package "$my_path/DefaultDark-SystemUI" "SysuiDarkThemeOverlay"
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Substratum QS exposures -->
+    <bool name="config_enable_qs_tile_tinting">true</bool>
+    <color name="qs_tiles_active_tint">@*com.android.systemui:color/qs_fg_for_transparent_primary</color>
+    <color name="qs_tiles_inactive_tint">@*com.android.systemui:color/qs_fg_for_transparent_tertiary</color>
+    <!-- keep in mind that the code adds 0.26 (light) or 0.30 (dark) alpha to this color. -->
+    <color name="qs_tiles_unavailable_tint">@*com.android.systemui:color/qs_fg_for_transparent_secondary</color>
+</resources>

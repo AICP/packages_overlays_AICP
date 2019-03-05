@@ -5,6 +5,7 @@ PRODUCT_PACKAGES += \
     Accent-Denim \
     Accent-Gold \
     Accent-GreenLight \
+    Accent-Grey \
     Accent-Lime \
     Accent-Orange \
     Accent-Oxygen \

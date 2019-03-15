@@ -460,7 +460,9 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
     private void cleanExpandedRows() {
         for (int i = mRows.size() - 1; i >= 0; i--) {
             final VolumeRow row = mRows.get(i);
-            if (row.stream == AudioManager.STREAM_RING || row.stream == AudioManager.STREAM_ALARM) {
+            if ((row.stream == AudioManager.STREAM_RING
+                   || row.stream == AudioManager.STREAM_NOTIFICATION
+                   || row.stream == AudioManager.STREAM_ALARM) && row.stream != mActiveStream) {
                 removeRow(row);
             }
         }
@@ -574,6 +576,11 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         }
     }
 
+    private boolean shouldShowNotificationStream() {
+        ContentResolver ns = mContext.getContentResolver();
+        return Settings.Secure.getInt(ns, Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+    }
+
     public void initSettingsH() {
         if (mMediaOutputIcon != null) {
             mMediaOutputIcon.setOnClickListener(v -> {
@@ -606,6 +613,10 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
                             mSysUIR.drawable("ic_volume_ringer_mute"), true, false);
                     addRow(AudioManager.STREAM_ALARM, mSysUIR.drawable("ic_volume_alarm"),
                             mSysUIR.drawable("ic_volume_alarm_mute"), true, false);
+                if (!shouldShowNotificationStream()) {
+                    addRow(AudioManager.STREAM_NOTIFICATION, mSysUIR.drawable("ic_volume_notification"),
+                            mSysUIR.drawable("ic_volume_notification_mute"), true, false);
+                }
                     updateAllActiveRows();
                     mExpanded = true;
                     updateOutputSwitcherVisibility();

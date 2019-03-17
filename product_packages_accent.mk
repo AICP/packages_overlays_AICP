@@ -1,6 +1,7 @@
 PRODUCT_PACKAGES += \
     Accent-Amber \
     Accent-BlueLight \
+    Accent-Carnation \
     Accent-Cyan \
     Accent-Denim \
     Accent-Gold \
@@ -15,4 +16,5 @@ PRODUCT_PACKAGES += \
     Accent-Red \
     Accent-Teal \
     Accent-Turquoise \
+    Accent-WhiteBlack \
     Accent-Yellow \

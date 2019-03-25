@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!--
-        Don't overlay too much to ensure readability
-    -->
-
+    <dimen name="config_dialogCornerRadius">0dp</dimen>
+    <dimen name="config_buttonCornerRadius">0dp</dimen>
+    <dimen name="config_progressBarCornerRadius">0dp</dimen>
 </resources>

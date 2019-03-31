@@ -43,9 +43,6 @@ fix_dd() {
         remove_tag "$my_path/$basename-System/res/values/colors.xml" "color" "accent_device_default_50"
         rm "$my_path/$basename-System/res/values/type1a.xml"
 
-        # Don't change rounded corners
-        remove_tag "$my_path/$basename-System/res/values/config.xml" "dimen" "config_dialogCornerRadius"
-
     fi
 
     if [ -d "$my_path/$basename-Settings" ]; then

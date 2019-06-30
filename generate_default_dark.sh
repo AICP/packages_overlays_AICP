@@ -91,7 +91,7 @@ generate_overlay "$overlay_path" "$my_path/DefaultDark-PackageInstaller" "com.an
                      "$overlay_package" "PackageInstaller" "$product_packages_makefile" || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-Phone" "com.android.phone" \
-                     "$overlay_package" "com.android.phone.common" "$product_packages_makefile" || exit $?
+                     "$overlay_package" "TeleService" "$product_packages_makefile" || exit $?
 
 generate_overlay "$overlay_path" "$my_path/DefaultDark-Telecom" "com.android.server.telecom" \
                      "$overlay_package" "Telecom" "$product_packages_makefile" || exit $?

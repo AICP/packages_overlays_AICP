@@ -11,6 +11,7 @@ PRODUCT_PACKAGES += \
     Accent-Lime \
     Accent-Orange \
     Accent-Oxygen \
+    Accent-OxygenRed \
     Accent-Pink \
     Accent-Pixel \
     Accent-Purple \

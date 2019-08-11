@@ -8,6 +8,7 @@ PRODUCT_PACKAGES += \
     Accent-GreenLight \
     Accent-Grey \
     Accent-Indigo \
+    Accent-Lava \
     Accent-Lime \
     Accent-Orange \
     Accent-Oxygen \

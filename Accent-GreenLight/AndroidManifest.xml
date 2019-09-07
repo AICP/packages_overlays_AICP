@@ -5,6 +5,11 @@ package="com.aicp.overlay.accent.greenlight.android"
 
     <overlay
         android:targetPackage="android"
+        android:category="aicp.accent"
         android:priority="1" />
+
+    <application
+        android:label="@string/theming_accent_greenlight"
+        android:hasCode="false" />
 
 </manifest>

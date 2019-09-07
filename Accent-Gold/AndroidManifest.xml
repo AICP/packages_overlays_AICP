@@ -5,6 +5,7 @@ package="com.aicp.overlay.accent.gold.android"
 
     <overlay
         android:targetPackage="android"
+        android:category="aicp.accent"
         android:priority="1" />
 
 </manifest>

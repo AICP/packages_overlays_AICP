@@ -19,7 +19,7 @@ function generate_accent() {
     color_50="$5"
     out_dir="$my_path/Accent-$name"
     name_lc=`echo "$name" | tr '[:upper:]' '[:lower:]'`
-    generate_overlay "$template" "$out_dir" "android" "$overlay_package.$name_lc" "" "$product_packages_makefile"
+    generate_overlay "theming_accent_$name_lc" "aicp.accent" "$template" "$out_dir" "android" "$overlay_package.$name_lc" "" "$product_packages_makefile"
     color_file="$out_dir/res/values/colors.xml"
     sed -i "s|?color_lt|$color_lt|g" "$color_file"
     sed -i "s|?color_dk|$color_dk|g" "$color_file"

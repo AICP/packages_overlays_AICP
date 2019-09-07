@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+/**
+ * Copyright (C) 2019 Android Ice Cold Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+
+<resources>
+    <string name="theming_accent_amber">Amber</string>
+    <string name="theming_accent_bluelight">Blue</string>
+    <string name="theming_accent_carnation">Carnation</string>
+    <string name="theming_accent_cyan">Cyan</string>
+    <string name="theming_accent_denim">Denim</string>
+    <string name="theming_accent_gold">Gold</string>
+    <string name="theming_accent_greenlight">Green</string>
+    <string name="theming_accent_grey">Grey</string>
+    <string name="theming_accent_indigo">Indigo</string>
+    <string name="theming_accent_lava">Lava</string>
+    <string name="theming_accent_lime">Lime</string>
+    <string name="theming_accent_orange">Orange</string>
+    <string name="theming_accent_oxygen">Oxygen</string>
+    <string name="theming_accent_pink">Pink</string>
+    <string name="theming_accent_pixel">Pixel</string>
+    <string name="theming_accent_purple">Purple</string>
+    <string name="theming_accent_red">Red</string>
+    <string name="theming_accent_teal">Teal</string>
+    <string name="theming_accent_turquoise">Turquoise</string>
+    <string name="theming_accent_whiteblack">White or Black</string>
+    <string name="theming_accent_yellow">Yellow</string>
+
+    <string name="theming_icon_shape_hexagon">Hexagon</string>
+
+    <string name="theming_bg_dark_gray">Gray</string>
+    <string name="theming_bg_dark_graylegacy">Gray legacy</string>
+    <string name="theming_bg_dark_black">Black</string>
+    <string name="theming_bg_light_pink">Pink</string>
+</resources>

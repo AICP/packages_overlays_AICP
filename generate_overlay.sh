@@ -1,4 +1,4 @@
-my_path="$(dirname "$0")"
+my_path="$(dirname "$(realpath "$0")")"
 
 function remove_tag() {
     # Usage:
@@ -12,7 +12,7 @@ function remove_tag() {
 
 function generate_overlay() {
     # Usage:
-    # generate_overlay <source_dir> <target_dir> <target_package> <overlay_package> <dependency_package> <append_to_makefile> [variants...]
+    # generate_overlay <label_res> <category> <source_dir> <target_dir> <target_package> <overlay_package> <dependency_package> <append_to_makefile> [variants...]
     # variants can be
     #   1:a:<name>
     #   1:b:<name>
@@ -21,6 +21,12 @@ function generate_overlay() {
     #   3:<name>
     # NOTE:
     # Referencing private resources not supported, needs manual intervention
+
+    label_res="$1"
+    shift
+
+    category="$1"
+    shift
 
     source_dir="$1"
     if [ ! -d "$source_dir" ]; then
@@ -87,6 +93,7 @@ function generate_overlay() {
     echo 'include $(CLEAR_VARS)' >> $makefile
     echo '' >> $makefile
     echo "LOCAL_RRO_THEME := $name" >> $makefile
+    echo 'LOCAL_PRODUCT_MODULE := true' >> $makefile
     echo 'LOCAL_CERTIFICATE := platform' >> $makefile
     echo 'LOCAL_SDK_VERSION := current' >> $makefile
     echo 'LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res' >> $makefile
@@ -96,7 +103,7 @@ function generate_overlay() {
         echo "LOCAL_AAPT_FLAGS := -I $dependency_res" >> $makefile
     fi
     echo '' >> $makefile
-    echo 'include $(BUILD_RRO_SYSTEM_PACKAGE)' >> $makefile
+    echo 'include $(BUILD_RRO_PACKAGE)' >> $makefile
 
 
     # --- Manifest ---
@@ -110,7 +117,12 @@ function generate_overlay() {
     echo >> $manifest
     echo '    <overlay' >> $manifest
     echo "        android:targetPackage=\"$target_package\"" >> $manifest
+    echo "        android:category=\"$category\"" >> $manifest
     echo '        android:priority="1" />' >> $manifest
+    echo >> $manifest
+    echo '    <application' >> $manifest
+    echo "        android:label=\"@string/$label_res\"" >> $manifest
+    echo '        android:hasCode="false" />' >> $manifest
     echo >> $manifest
     echo '</manifest>' >> $manifest
 
@@ -138,6 +150,10 @@ function generate_overlay() {
         fi
     done
     cp -r "$source_res_dir" "$res_dir"
+    # Common string resources
+    mkdir -p "$res_dir/values/"
+    cp "$my_path/common-resources/res/values/"* "$res_dir/values/"
+    cp -r "$my_path/common-resources/res/values-"* "$res_dir"
 
 
     # --- Variants type 1+2 ---

@@ -39,4 +39,6 @@
     <string name="theming_accent_turquoise">Turquoise</string>
     <string name="theming_accent_whiteblack">White or Black</string>
     <string name="theming_accent_yellow">Yellow</string>
+
+    <string name="theming_icon_shape_hexagon">Hexagon</string>
 </resources>

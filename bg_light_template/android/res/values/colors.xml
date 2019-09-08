@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_device_default_light">?primary</color>
+    <color name="primary_device_default_settings_light">?primary</color>
+    <color name="primary_dark_device_default_light">?primary_dark</color>
+    <color name="primary_dark_device_default_settings_light">?primary_dark</color>
+
+    <color name="secondary_device_default_settings_light">?secondary</color>
+    <!--
+    <color name="tertiary_device_default_settings">@color/tertiary_material_settings</color>
+    <color name="quaternary_device_default_settings">@color/quaternary_material_settings</color>
+    -->
+
+    <color name="background_device_default_light">?background</color>
+    <color name="background_floating_device_default_light">?background_floating</color>
+</resources>

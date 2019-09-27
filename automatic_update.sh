@@ -4,8 +4,9 @@
 git reset HEAD --hard
 # Build updates
 ./generate_accents.sh
-./generate_icon_shapes.sh
 ./generate_background_themes.sh
+./generate_default_dark.sh
+./generate_icon_shapes.sh
 # Commit
 git add -A
 git commit -m "Automatic theme update"

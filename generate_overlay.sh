@@ -12,7 +12,7 @@ function remove_tag() {
 
 function generate_overlay() {
     # Usage:
-    # generate_overlay <label_res> <category> <source_dir> <target_dir> <target_package> <overlay_package> <dependency_package> <append_to_makefile> [variants...]
+    # generate_overlay [--night] <label_res> <category> <source_dir> <target_dir> <target_package> <overlay_package> <dependency_package> <append_to_makefile> [variants...]
     # variants can be
     #   1:a:<name>
     #   1:b:<name>
@@ -21,6 +21,13 @@ function generate_overlay() {
     #   3:<name>
     # NOTE:
     # Referencing private resources not supported, needs manual intervention
+
+    if [ "$1" = "--night" ]; then
+        night=1
+        shift
+    else
+        night=0
+    fi
 
     label_res="$1"
     shift
@@ -84,7 +91,7 @@ function generate_overlay() {
     makefile="$target_dir/Android.mk"
 
     if [ ! -z "$dependency_package" ]; then
-        dependency_res='$(TARGET_OUT_INTERMEDIATES)/APPS/'"$dependency_package"'_intermediates/package-res.apk'
+        dependency_res='$(TARGET_OUT_INTERMEDIATES)/APPS/'"$dependency_package"'_intermediates/package.apk'
     else
         dependency_res=
     fi
@@ -150,6 +157,24 @@ function generate_overlay() {
         fi
     done
     cp -r "$source_res_dir" "$res_dir"
+
+    # Move resources to -night counterparts if requested (for dark themes)
+    if [ "$night" = "1" ]; then
+        for f in "$target_dir/res"/*; do
+            if [[ "$f" =~ -night ]]; then
+                echo "$f is already night resource"
+            else
+                # error: invalid configuration 'xxhdpi-night'.
+                bf="$(basename "$f")"
+                df="$(dirname "$f")"
+                if [[ "$bf" =~ "-" ]]; then
+                    mv $f $df/`echo "$bf" | sed 's/\(.*\)\(-.*\)/\1-night\2/'`
+                else
+                    mv $f $f-night
+                fi
+            fi
+        done
+    fi
     # Common string resources
     mkdir -p "$res_dir/values/"
     cp "$my_path/common-resources/res/values/"* "$res_dir/values/"

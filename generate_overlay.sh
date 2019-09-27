@@ -84,7 +84,7 @@ function generate_overlay() {
     makefile="$target_dir/Android.mk"
 
     if [ ! -z "$dependency_package" ]; then
-        dependency_res='$(TARGET_OUT_INTERMEDIATES)/APPS/'"$dependency_package"'_intermediates/package-res.apk'
+        dependency_res='$(TARGET_OUT_INTERMEDIATES)/APPS/'"$dependency_package"'_intermediates/package.apk'
     else
         dependency_res=
     fi

@@ -41,6 +41,7 @@
     <string name="theming_accent_yellow">Yellow</string>
 
     <string name="theming_icon_shape_hexagon">Hexagon</string>
+    <string name="theming_icon_shape_round">Round</string>
 
     <string name="theming_bg_dark_gray">Gray</string>
     <string name="theming_bg_dark_graylegacy">Gray legacy</string>

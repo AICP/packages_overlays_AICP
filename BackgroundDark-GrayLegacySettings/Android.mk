@@ -7,7 +7,7 @@ LOCAL_CERTIFICATE := platform
 LOCAL_SDK_VERSION := current
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 LOCAL_PACKAGE_NAME := BackgroundDark-GrayLegacySettings
-LOCAL_RESOURCE_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/APPS/Settings_intermediates/package-res.apk
-LOCAL_AAPT_FLAGS := -I $(TARGET_OUT_INTERMEDIATES)/APPS/Settings_intermediates/package-res.apk
+LOCAL_RESOURCE_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/APPS/Settings_intermediates/package.apk
+LOCAL_AAPT_FLAGS := -I $(TARGET_OUT_INTERMEDIATES)/APPS/Settings_intermediates/package.apk
 
 include $(BUILD_RRO_PACKAGE)

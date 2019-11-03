@@ -47,4 +47,15 @@
     <string name="theming_bg_dark_graylegacy">Gray legacy</string>
     <string name="theming_bg_dark_black">Black</string>
     <string name="theming_bg_light_pink">Pink</string>
+
+    <string name="theming_better_dark_android">Better dark</string>
+    <string name="theming_better_dark_contacts">Dark contacts</string>
+    <string name="theming_better_dark_deskclock">Dark clock</string>
+    <string name="theming_better_dark_dialer">Dark dialer</string>
+    <string name="theming_better_dark_documentsui">Dark documents</string>
+    <string name="theming_better_dark_messaging">Dark documents</string>
+    <string name="theming_better_dark_phone">Dark phone</string>
+    <string name="theming_better_dark_telecom">Dark telecom</string>
+
+    <string name="theming_qs_fg_plain">Plain</string>
 </resources>

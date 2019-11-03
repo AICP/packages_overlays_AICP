@@ -56,4 +56,6 @@
     <string name="theming_better_dark_messaging">Dark documents</string>
     <string name="theming_better_dark_phone">Dark phone</string>
     <string name="theming_better_dark_telecom">Dark telecom</string>
+
+    <string name="theming_qs_fg_plain">Plain</string>
 </resources>

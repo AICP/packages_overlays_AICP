@@ -7,6 +7,7 @@ git reset HEAD --hard
 ./generate_background_themes.sh
 ./generate_default_dark.sh
 ./generate_icon_shapes.sh
+./generate_notification_styles.sh
 ./generate_qs_styles.sh
 # Commit
 git add -A

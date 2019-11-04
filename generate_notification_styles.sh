@@ -1,0 +1,42 @@
+#!/bin/sh
+
+my_path="$(dirname "$(realpath "$0")")"
+
+# Get overlay generation functions
+. "$my_path"/generate_overlay.sh
+
+notif_dark_overlay_package="com.aicp.overlay.notif_dark"
+notif_light_overlay_package="com.aicp.overlay.notif_light"
+product_packages_makefile="$my_path/product_packages_notif_styles.mk"
+
+function generate_notif_dark_style() {
+    # generate_notif_dark_style <name> <background>
+    name="$1"
+    background="$2"
+    out_dir="$my_path/NotifDark-$name"
+    name_lc=`echo "$name" | tr '[:upper:]' '[:lower:]'`
+    #generate_overlay --night "theming_notif_dark_$name_lc" "aicp.notif_dark" "$my_path/notif_template" "$out_dir" "com.android.systemui" "$bg_dark_overlay_package.$name_lc" "SystemUI" "$product_packages_makefile"
+    generate_overlay --night "theming_notif_dark_$name_lc" "aicp.notif_dark" "$my_path/notif_template" "$out_dir" "android" "$notif_dark_overlay_package.$name_lc" "" "$product_packages_makefile"
+    colors_file="$out_dir/res/values-night/colors.xml"
+    sed -i "s|?background|$background|g" "$colors_file"
+}
+
+function generate_notif_light_style() {
+    # generate_notif_light_style <name> <background>
+    name="$1"
+    background="$2"
+    out_dir="$my_path/NotifLight-$name"
+    name_lc=`echo "$name" | tr '[:upper:]' '[:lower:]'`
+    #generate_overlay "theming_notif_light_$name_lc" "aicp.notif_light" "$my_path/notif_template" "$out_dir" "com.android.systemui" "$bg_dark_overlay_package.$name_lc" "SystemUI" "$product_packages_makefile"
+    generate_overlay "theming_notif_light_$name_lc" "aicp.notif_light" "$my_path/notif_template" "$out_dir" "android" "$notif_light_overlay_package.$name_lc" "" "$product_packages_makefile"
+    colors_file="$out_dir/res/values/colors.xml"
+    sed -i "s|?background|$background|g" "$colors_file"
+}
+
+# Clean previous makefile
+rm -f "$product_packages_makefile"
+
+generate_notif_dark_style "Gray" "#ff303030"
+generate_notif_dark_style "TransparentGray" "#80303030"
+generate_notif_dark_style "TransparentBlack" "#80303030"
+generate_notif_light_style "TransparentWhite" "#b3ffffff"

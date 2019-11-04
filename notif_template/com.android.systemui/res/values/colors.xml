@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="notification_material_background_dimmed_color">?background_dimmed</color>
+    <color name="notification_shade_background_color">?shade</color>
+
+</resources>

@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.aicp.overlay.qs_bg_dark.transparentwhite.android"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <overlay
+        android:targetPackage="android"
+        android:category="aicp.qs_bg_light"
+        android:priority="1" />
+
+    <application
+        android:label="@string/theming_qs_bg_light_transparentwhite"
+        android:hasCode="false" />
+
+</manifest>

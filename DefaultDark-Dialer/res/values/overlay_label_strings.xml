@@ -58,4 +58,13 @@
     <string name="theming_better_dark_telecom">Dark telecom</string>
 
     <string name="theming_qs_fg_plain">Plain</string>
+    <string name="theming_qs_bg_dark_gray">Gray</string>
+    <string name="theming_qs_bg_dark_transparentblack">Transparent black</string>
+    <string name="theming_qs_bg_dark_transparentgray">Transparent gray</string>
+    <string name="theming_qs_bg_light_transparentwhite">Transparent</string>
+
+    <string name="theming_notif_dark_gray">Gray</string>
+    <string name="theming_notif_dark_transparentblack">Transparent black</string>
+    <string name="theming_notif_dark_transparentgray">Transparent gray</string>
+    <string name="theming_notif_light_transparentwhite">Transparent</string>
 </resources>

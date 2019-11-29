@@ -7,7 +7,6 @@
     <color name="notification_material_background_color">#ff303030</color>
 
 
-    <!-- TODO dark/light separation etc -->
     <color name="notification_gear_color">#80ffffff</color>
 
     <!-- The "inside" of a notification, reached via longpress -->

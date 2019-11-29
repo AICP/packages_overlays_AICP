@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="notification_material_background_dimmed_color">?background_dimmed</color>
+    <color name="notification_shade_background_color">?shade</color>
+
+    <color name="notification_material_background_color">?background</color>
+
+
+    <color name="notification_gear_color">#80000000</color>
+
+    <color name="notification_guts_info_button_color">@*android:color/accent_device_default_light</color>
+    <color name="notification_guts_priority_button_content_color_selected">@*android:color/accent_device_default_light</color>
+    <color name="notification_guts_priority_button_bg_stroke_color_selected">@*android:color/accent_device_default_light</color>
+
+</resources>

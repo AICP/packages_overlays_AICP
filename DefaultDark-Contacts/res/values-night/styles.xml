@@ -224,12 +224,12 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">#ffffff</item>
         <item name="android:alpha">0.54</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
     </style>
 
     <style name="DrawerItemTextStyle">
         <!-- parent="DrawerTextStyle" -->
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:textSize">14sp</item>
@@ -246,7 +246,7 @@
 
     <style name="DrawerHeaderTextStyle">
         <!-- parent="DrawerTextStyle" -->
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>

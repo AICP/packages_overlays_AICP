@@ -32,10 +32,14 @@ rm -f "$product_packages_makefile"
 
 # generate_overlay  wrapper
 generate_dark() {
+    target_dir="$2"
     target_package="$3"
     label_res="theming_better_dark_$(echo "$target_package" | sed 's/.*\.//')"
     generate_overlay --night "$label_res" "$overlay_category" "$@"
-
+    for file in `find "$target_dir" -name \*.xml`; do
+        sed -i 's|>sans-serif-medium<|>@*android:string/config_bodyFontFamilyMedium<|g' "$file"
+        sed -i 's|>sans-serif<|>@*android:string/config_bodyFontFamily<|g' "$file"
+    done
 }
 
 

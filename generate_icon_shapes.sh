@@ -30,5 +30,7 @@ function generate_icon_shape() {
 # Clean previous makefile
 rm -f "$product_packages_makefile"
 
+generate_icon_shape "SlightlyRounded" "M50,0L92,0C96.42,0 100,4.58 100 8L100,92C100, 96.42 96.42 100 92 100L8 100C4.58, 100 0 96.42 0 92L0 8 C 0 4.42 4.42 0 8 0L50 0Z" "2dp" "2dp" "false"
+generate_icon_shape "Square" "M50,0L100,0 100,100 0,100 0,0z" "0dp" "0dp" "false"
 generate_icon_shape "Hexagon" "M 50,0 L 6.699,25 L 6.699,75 L 50,100 L 93.301,75 L 93.301,25 Z" "0dp" "0dp" "false"
 generate_icon_shape "Round" "M50 0A50 50,0,1,1,50 100A50 50,0,1,1,50 0" "4dp" "8dp" "true"

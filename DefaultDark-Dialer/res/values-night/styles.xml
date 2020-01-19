@@ -67,4 +67,11 @@
     <item name="android:navigationBarDividerColor">#E0E0E0</item>
     -->
   </style>
+
+  <style name="AlertDialogTheme" parent="*com.android.dialer:style/Theme.AppCompat.Dialog.Alert">
+    <!-- TODO(a bug): figure out why ?android:attr/colorPrimary doesn't work here -->
+    <item name="android:colorAccent">@*com.android.dialer:color/dialer_dark_theme_color</item>
+    <item name="*com.android.dialer:colorAccent">@*com.android.dialer:color/dialer_dark_theme_color</item>
+    <item name="android:background">@*android:color/background_floating_device_default_dark</item>
+  </style>
 </resources>

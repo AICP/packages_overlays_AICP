@@ -18,8 +18,8 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Specifies the path that is used by AdaptiveIconDrawable class to crop launcher icons. -->
-    <string name="config_icon_mask" translatable="false">"?icon_mask"</string>
-    <!-- Flag indicating whether round icons should be parsed from the application manifest. -->
-    <bool name="config_useRoundIcon">?useRoundIcon</bool>
+    <!-- Corner radius of system dialogs -->
+    <dimen name="config_dialogCornerRadius">?dialogCornerRadius</dimen>
+    <!-- Corner radius for bottom sheet system dialogs -->
+    <dimen name="config_bottomDialogCornerRadius">?bottomDialogCornerRadius</dimen>
 </resources>

@@ -22,9 +22,4 @@
     <string name="config_icon_mask" translatable="false">"M 50,0 L 6.699,25 L 6.699,75 L 50,100 L 93.301,75 L 93.301,25 Z"</string>
     <!-- Flag indicating whether round icons should be parsed from the application manifest. -->
     <bool name="config_useRoundIcon">false</bool>
-    <!-- Corner radius of system dialogs -->
-    <dimen name="config_dialogCornerRadius">0dp</dimen>
-    <!-- Corner radius for bottom sheet system dialogs -->
-    <dimen name="config_bottomDialogCornerRadius">0dp</dimen>
-
 </resources>

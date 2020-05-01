@@ -178,9 +178,14 @@ function generate_overlay() {
         done
     fi
     # Common string resources
-    mkdir -p "$res_dir/values/"
-    cp "$my_path/common-resources/res/values/"* "$res_dir/values/"
-    cp -r "$my_path/common-resources/res/values-"* "$res_dir"
+    find "$my_path/common-resources/res" -name overlay_label_strings.xml -print0 |
+        while IFS= read -r -d '' resource_file; do
+            filename="$(basename "$resource_file")"
+            dirname="$(basename "$(dirname "$resource_file")")"
+            mkdir -p "$res_dir/$dirname"
+            # Remove all strings except the required label
+            grep -v -e '^$' "$resource_file" | grep -v -P "<string name=\"(?!$label_res\")" > "$res_dir/$dirname/$filename"
+        done
 
 
     # --- Variants type 1+2 ---

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Undo local changes
 git reset HEAD --hard

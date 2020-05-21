@@ -52,6 +52,9 @@
     <string name="theming_bg_dark_gray">Gray</string>
     <string name="theming_bg_dark_graylegacy">Gray legacy</string>
     <string name="theming_bg_dark_black">Black</string>
+    <string name="theming_bg_dark_blue">Blue</string>
+    <string name="theming_bg_dark_brown">Brown</string>
+    <string name="theming_bg_dark_purple">Purple</string>
     <string name="theming_bg_light_pink">Pink</string>
 
     <string name="theming_better_dark_android">Better dark</string>

@@ -66,6 +66,9 @@ rm -f "$product_packages_makefile"
 
 generate_background_dark "Gray" "#ff303030" "#ff424242" "#ff303030" "#ff303030" "#ff424242"
 generate_background_dark "Black" "#ff000000" "#ff000000" "#ff000000" "#ff000000" "#ff424242"
+generate_background_dark "Blue" "#ff000640" "#ff0b1152" "#ff000640" "#ff000640" "#ff0b1152"
+generate_background_dark "Brown" "#ff3e2723" "#ff452d29" "#ff3e2723" "#ff3e2723" "#ff452d29"
+generate_background_dark "Purple" "#ff2A0047" "#ff2d044a" "#ff2A0047" "#ff2A0047" "#ff2d044a"
 generate_background_light "Pink" "#fff48ed0" "#ffffd4f0" "#fff48ed0" "#ffc272a5" "#fff48ed0"
 
 generate_background_dark "GrayLegacy" "#ff303030" "#ff424242" "#ff212121" "#ff000000" "#ff424242" "$template_dark_legacy"

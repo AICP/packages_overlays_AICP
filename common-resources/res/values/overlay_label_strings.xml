@@ -67,11 +67,13 @@
     <string name="theming_better_dark_telecom">Dark telecom</string>
 
     <string name="theming_qs_fg_plain">Plain</string>
+    <string name="theming_qs_bg_dark_followsystem">Follow system</string>
     <string name="theming_qs_bg_dark_gray">Gray</string>
     <string name="theming_qs_bg_dark_transparentblack50">Transparent black</string>
     <string name="theming_qs_bg_dark_transparentblack75">Slightly transparent black</string>
     <string name="theming_qs_bg_dark_transparentgray50">Transparent gray</string>
     <string name="theming_qs_bg_dark_transparentgray75">Slightly transparent gray</string>
+    <string name="theming_qs_bg_light_followsystem">Follow system</string>
     <string name="theming_qs_bg_light_transparentwhite">Transparent</string>
 
     <string name="theming_notif_dark_gray">Gray</string>

@@ -17,5 +17,5 @@
  */
 -->
 <resources>
-    <string name="theming_better_dark_deskclock">Dark clock</string>
+    <string name="theming_qs_bg_dark_followsystem">Follow system</string>
 </resources>

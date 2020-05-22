@@ -5,4 +5,6 @@ PRODUCT_PACKAGES += \
     QsBgDark-TransparentBlack75 \
     QsBgDark-TransparentGray50 \
     QsBgDark-TransparentGray75 \
+    QsBgDark-FollowSystem \
     QsBgLight-TransparentWhite \
+    QsBgLight-FollowSystem \

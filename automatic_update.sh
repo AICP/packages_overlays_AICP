@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# Undo local changes
-git reset HEAD --hard
+# Require clean git state
+uncommitted=`git status --porcelain`
+if [ ! -z "$uncommitted" ]; then
+    echo "Uncommitted changes are present, please commit first!"
+    exit 1
+fi
 # Build updates
 ./generate_accents.sh
 ./generate_background_themes.sh

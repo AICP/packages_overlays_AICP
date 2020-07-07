@@ -8,7 +8,8 @@ my_path="$(dirname "$0")"
 dd_path="../../../external/DarkCroc-Android-theme"
 
 if [ ! -d "$dd_path" ]; then
-    echo "Cannot access $dd_path"
+    echo "Cannot access $dd_path, you might want to add the following repo to your local manifest:"
+    echo '    <project name="SpiritCroc/DarkCroc-Android-theme" path="external/DarkCroc-Android-theme" remote="github" revision="9.0-substratum" />'
     exit 1
 fi
 

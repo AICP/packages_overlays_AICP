@@ -15,6 +15,8 @@ PRODUCT_PACKAGES += \
     AccentDark-GreenLight \
     AccentLight-Grey \
     AccentDark-Grey \
+    AccentLight-Hope \
+    AccentDark-Hope \
     AccentLight-Indigo \
     AccentDark-Indigo \
     AccentLight-Lava \

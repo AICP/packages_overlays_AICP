@@ -23,6 +23,9 @@
     <string name="theming_accent_carnation">Carnation</string>
     <string name="theming_accent_cyan">Cyan</string>
     <string name="theming_accent_denim">Denim</string>
+    <string name="theming_accent_etherealblue">EtherealBlue</string>
+    <string name="theming_accent_etherealgreen">EtherealGreen</string>
+    <string name="theming_accent_etherealpink">EtherealPink</string>
     <string name="theming_accent_gold">Gold</string>
     <string name="theming_accent_greenlight">Green</string>
     <string name="theming_accent_grey">Grey</string>

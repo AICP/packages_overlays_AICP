@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.aicp.overlay.darkaccent.etherealgreen.android"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <overlay
+        android:targetPackage="android"
+        android:category="aicp.accent.dark"
+        android:priority="1" />
+
+    <application
+        android:label="@string/theming_accent_etherealgreen"
+        android:hasCode="false" />
+
+</manifest>

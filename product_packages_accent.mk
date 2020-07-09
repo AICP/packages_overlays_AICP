@@ -9,6 +9,12 @@ PRODUCT_PACKAGES += \
     AccentDark-Cyan \
     AccentLight-Denim \
     AccentDark-Denim \
+    AccentLight-EtherealBlue \
+    AccentDark-EtherealBlue \
+    AccentLight-EtherealGreen \
+    AccentDark-EtherealGreen \
+    AccentLight-EtherealPink \
+    AccentDark-EtherealPink \
     AccentLight-Gold \
     AccentDark-Gold \
     AccentLight-GreenLight \

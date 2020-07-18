@@ -385,10 +385,10 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         int[] dialogLocation = new int[2];
         mDialogView.getLocationInWindow(dialogLocation);
         internalInsetsInfo.touchableRegion.set(new Region(
-                mainLocation[0],
-                dialogLocation[1],
-                mainLocation[0] + main.getWidth(),
-                dialogLocation[1] + mDialogView.getHeight()
+            mainLocation[0] - main.getWidth(),
+            dialogLocation[1],
+            mainLocation[0] + main.getWidth(),
+            dialogLocation[1] + mDialogView.getHeight()
         ));
     };
 

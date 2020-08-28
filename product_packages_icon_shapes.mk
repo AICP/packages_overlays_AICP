@@ -6,3 +6,6 @@ PRODUCT_PACKAGES += \
     IconShape-Teardrop \
     IconShape-Square \
     IconShape-Hexagon \
+    IconShape-Pebble \
+    IconShape-TaperedRect \
+    IconShape-Vessel \

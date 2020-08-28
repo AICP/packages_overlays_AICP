@@ -52,6 +52,9 @@
     <string name="theming_icon_shape_squircle">Squircle</string>
     <string name="theming_icon_shape_teardrop">Teardrop</string>
     <string name="theming_icon_shape_roundedrect">Rounded Rectangle</string>
+    <string name="theming_icon_shape_pebble">Pebble</string>
+    <string name="theming_icon_shape_taperedrect">Tapered Rect</string>
+    <string name="theming_icon_shape_vessel">Vessel</string>
 
     <string name="theming_bg_dark_gray">Gray</string>
     <string name="theming_bg_dark_graylegacy">Gray legacy</string>

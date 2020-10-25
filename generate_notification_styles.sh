@@ -18,7 +18,7 @@ function generate_notif_dark_style() {
     name_lc=`echo "$name" | tr '[:upper:]' '[:lower:]'`
 
     out_dir="$my_path/NotifDark-SystemUI-$name"
-    generate_overlay --night "theming_notif_dark_$name_lc" "aicp.notif_dark" "$my_path/notif_template_dark" "$out_dir" "com.android.systemui" "$notif_dark_overlay_package.$name_lc" "SystemUI" "$product_packages_makefile"
+    generate_overlay --night "theming_notif_dark_$name_lc" "aicp.notif_dark" "$my_path/notif_template_dark" "$out_dir" "com.android.systemui" "$notif_dark_overlay_package.$name_lc" "" "$product_packages_makefile"
     colors_file="$out_dir/res/values-night/colors.xml"
     sed -i "s|?background_dimmed|$background_dimmed|g" "$colors_file"
     sed -i "s|?shade|$shade|g" "$colors_file"
@@ -39,7 +39,7 @@ function generate_notif_light_style() {
     name_lc=`echo "$name" | tr '[:upper:]' '[:lower:]'`
 
     out_dir="$my_path/NotifLight-SystemUI-$name"
-    generate_overlay "theming_notif_light_$name_lc" "aicp.notif_light" "$my_path/notif_template_light" "$out_dir" "com.android.systemui" "$notif_light_overlay_package.$name_lc" "SystemUI" "$product_packages_makefile"
+    generate_overlay "theming_notif_light_$name_lc" "aicp.notif_light" "$my_path/notif_template_light" "$out_dir" "com.android.systemui" "$notif_light_overlay_package.$name_lc" "" "$product_packages_makefile"
     colors_file="$out_dir/res/values/colors.xml"
     sed -i "s|?background_dimmed|$background_dimmed|g" "$colors_file"
     sed -i "s|?shade|$shade|g" "$colors_file"
@@ -54,6 +54,8 @@ function generate_notif_light_style() {
 # Clean previous makefile
 rm -f "$product_packages_makefile"
 
+# TODO: template needs update for R
+if false; then
 generate_notif_dark_style "Gray" "#ff303030" "#aa000000" "#212121"
 # For transparent styles, we can't use shade = 0 or invalidate won't be called in NotificationStackScrollLayout's updateBackgroundDimming as mCachedBackgroundColor == color
 # #00000001 looks the same though.
@@ -62,3 +64,7 @@ generate_notif_dark_style "TransparentGray75" "#b3303030" "#80000000" "#00000001
 generate_notif_dark_style "TransparentBlack50" "#80000000" "#60000000" "#00000001"
 generate_notif_dark_style "TransparentBlack75" "#b3000000" "#80000000" "#00000001"
 generate_notif_light_style "TransparentWhite" "#b3ffffff" "#80ffffff" "#00000001"
+else
+# Empty
+touch "$product_packages_makefile"
+fi

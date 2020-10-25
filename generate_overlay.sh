@@ -108,8 +108,9 @@ function generate_overlay() {
     echo 'LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res' >> $makefile
     echo "LOCAL_PACKAGE_NAME := $name" >> $makefile
     if [ ! -z "$dependency_res" ]; then
-        echo "LOCAL_RESOURCE_DEPENDENCIES := $dependency_res" >> $makefile
-        echo "LOCAL_AAPT_FLAGS := -I $dependency_res" >> $makefile
+        echo "WARN: Setting dependency for $overlay_package_name to $dependency_package not supported since R!"
+        #echo "LOCAL_RESOURCE_DEPENDENCIES := $dependency_res" >> $makefile
+        #echo "LOCAL_AAPT_FLAGS := -I $dependency_res" >> $makefile
     fi
     echo '' >> $makefile
     echo 'include $(BUILD_RRO_PACKAGE)' >> $makefile

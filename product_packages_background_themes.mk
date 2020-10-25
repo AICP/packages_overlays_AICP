@@ -6,5 +6,4 @@ PRODUCT_PACKAGES += \
     BackgroundDark-Purple \
     BackgroundLight-Pink \
     BackgroundDark-GrayLegacy \
-    BackgroundDark-GrayLegacySettings \
     BackgroundDark-GrayLegacySettingsIntelligence \

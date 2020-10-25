@@ -72,6 +72,5 @@ generate_background_dark "Purple" "#ff2A0047" "#ff2d044a" "#ff2A0047" "#ff2A0047
 generate_background_light "Pink" "#fff48ed0" "#ffffd4f0" "#fff48ed0" "#ffc272a5" "#fff48ed0"
 
 generate_background_dark "GrayLegacy" "#ff303030" "#ff424242" "#ff212121" "#ff000000" "#ff424242" "$template_dark_legacy"
-# TODO template needs update to R
-#generate_overlay "theming_bg_dark_graylegacy" "aicp.bg_dark" "$template_dark_legacy" "$my_path/BackgroundDark-GrayLegacySettings" "com.android.settings" "$overlay_package_dark.graylegacy" "" "$product_packages_makefile"
+generate_overlay "theming_bg_dark_graylegacy" "aicp.bg_dark" "$template_dark_legacy" "$my_path/BackgroundDark-GrayLegacySettings" "com.android.settings" "$overlay_package_dark.graylegacy" "" "$product_packages_makefile"
 generate_overlay "theming_bg_dark_graylegacy" "aicp.bg_dark" "$template_dark_legacy" "$my_path/BackgroundDark-GrayLegacySettingsIntelligence" "com.android.settings.intelligence" "$overlay_package_dark.graylegacy" "" "$product_packages_makefile"

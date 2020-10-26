@@ -40,28 +40,7 @@
     <dimen name="volume_row_slider_padding_start">12dp</dimen>
     <dimen name="volume_tool_tip_bottom_margin">32dp</dimen>
     <dimen name="volume_tool_tip_right_margin">76dp</dimen>
-
-
-    <dimen name="volume_dialog_miui_panel_transparent_padding_right">8dp</dimen>
-    <!-- the amount the volume panel should be offset at the end from the view next to it (or
-    the screen edge, in portrait-->
-    <dimen name="volume_dialog_miui_base_margin">8dp</dimen>
-    <dimen name="volume_dialog_miui_panel_width">42dip</dimen>
-    <dimen name="volume_dialog_miui_row_height">252dp</dimen>
-    <dimen name="volume_dialog_miui_ringer_size">46dip</dimen>
-    <dimen name="volume_dialog_miui_ringer_icon_padding">8dp</dimen>
-    <dimen name="volume_dialog_miui_tap_target_size">46dip</dimen>
-    <dimen name="volume_dialog_miui_spacer">9dip</dimen>
-    <dimen name="volume_dialog_miui_slider_margin_top">-12.5dp</dimen>
-    <dimen name="volume_dialog_miui_slider_margin_bottom">-12.5dp</dimen>
-    <dimen name="volume_dialog_miui_row_margin_bottom">0dp</dimen>
-    <dimen name="volume_dialog_miui_settings_icon_size">16dp</dimen>
-    <dimen name="custom_volume_dialog_miui_seekbar_width">40dip</dimen>
-    <dimen name="custom_volume_dialog_miui_seekbar_height">220dip</dimen>
-    <dimen name="volume_dialog_miui_row_icon_margintop">-54dp</dimen>
-    <dimen name="volume_dialog_miui_rows_padding_right">0.5dip</dimen>
-    <dimen name="volume_dialog_miui_ringer_spacing">4dip</dimen>
-    <dimen name="volume_dialog_miui_ringer_height">38dip</dimen>
-    <dimen name="volume_dialog_miui_caption_size">@dimen/volume_dialog_miui_ringer_size</dimen>
-
+    <dimen name="volume_row_app_icon_padding">1dp</dimen>
+    <dimen name="volume_dialog_tap_target_app_size">38dip</dimen>
+    <dimen name="volume_dialog_app_row_icon_margintop">-50dp</dimen>
 </resources>

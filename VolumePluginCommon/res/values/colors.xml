@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+     Copyright (C) 2020 The Potato Open Sauce Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <color name="volume_background_tint">@android:color/white</color>
+    <color name="volume_dialog_background">@android:color/white</color>
+
+    <color name="ringer_icon_normal">#5c5c5c</color>
+    <color name="ringer_bcg_normal">@color/volume_background_tint</color>
+
+    <color name="ringer_icon_mute">@android:color/white</color>
+
+   <color name="row_icon_dark">@color/ringer_icon_normal</color>
+   <color name="row_icon_white">@android:color/white</color>
+
+</resources>

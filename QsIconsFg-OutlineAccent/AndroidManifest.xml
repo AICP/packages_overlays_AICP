@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.aicp.overlay.qs_fg.outlineaccent.com.android.systemui"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <overlay
+        android:targetPackage="com.android.systemui"
+        android:category="aicp.qs_fg"
+        android:priority="1" />
+
+    <application
+        android:label="@string/theming_qs_fg_outlineaccent"
+        android:hasCode="false" />
+
+</manifest>

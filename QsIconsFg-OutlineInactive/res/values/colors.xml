@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Basically, the following value is already the default value.
+        We still overlay it, because we need to overlay anything in
+        com.android.systemui for this overlay category, in order to get
+        picked up by our setting
+    -->
+    <bool name="config_enable_qs_tile_tinting">false</bool>
+</resources>

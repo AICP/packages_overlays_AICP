@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.aicp.overlay.qs_fg.outlineinactive.android"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <overlay
+        android:targetPackage="android"
+        android:category="aicp.qs_fg"
+        android:priority="1" />
+
+    <application
+        android:label="@string/theming_qs_fg_outlineinactive"
+        android:hasCode="false" />
+
+</manifest>

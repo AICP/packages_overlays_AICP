@@ -74,6 +74,9 @@
     <string name="theming_better_dark_telecom">Dark telecom</string>
 
     <string name="theming_qs_fg_plain">Plain</string>
+    <string name="theming_qs_fg_outline">Outline</string>
+    <string name="theming_qs_fg_outlineaccent">Outline with accent</string>
+    <string name="theming_qs_fg_outlineinactive">Outline if inactive</string>
     <string name="theming_qs_bg_dark_followsystem">Follow system</string>
     <string name="theming_qs_bg_dark_gray">Gray</string>
     <string name="theming_qs_bg_dark_transparentblack50">Transparent black</string>

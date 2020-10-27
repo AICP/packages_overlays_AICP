@@ -17,6 +17,9 @@ function generate_qs_fg_style() {
     out_dir="$my_path/QsIconsFg-$name"
     name_lc=`echo "$name" | tr '[:upper:]' '[:lower:]'`
     generate_overlay "theming_qs_fg_$name_lc" "aicp.qs_fg" "$template" "$out_dir" "com.android.systemui" "$fg_overlay_package.$name_lc" "" "$product_packages_makefile"
+    if [ -d "$template/android" ]; then
+        generate_overlay "theming_qs_fg_$name_lc" "aicp.qs_fg" "$template" "$out_dir-System" "android" "$fg_overlay_package.$name_lc" "" "$product_packages_makefile"
+    fi
 }
 
 function generate_qs_bg_dark_style() {
@@ -49,6 +52,9 @@ function generate_qs_bg_light_style() {
 rm -f "$product_packages_makefile"
 
 generate_qs_fg_style "Plain" "$my_path/qs_fg_plain_template"
+generate_qs_fg_style "Outline" "$my_path/qs_fg_outline_template"
+generate_qs_fg_style "OutlineAccent" "$my_path/qs_fg_outline_accent_template"
+generate_qs_fg_style "OutlineInactive" "$my_path/qs_fg_outline_inactive_template"
 # TODO: bg template needs update for R
 if false; then
 generate_qs_bg_dark_style "Gray" "#ff303030" "#ff424242"

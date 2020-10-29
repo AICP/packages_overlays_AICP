@@ -55,8 +55,6 @@ generate_qs_fg_style "Plain" "$my_path/qs_fg_plain_template"
 generate_qs_fg_style "Outline" "$my_path/qs_fg_outline_template"
 generate_qs_fg_style "OutlineAccent" "$my_path/qs_fg_outline_accent_template"
 generate_qs_fg_style "OutlineInactive" "$my_path/qs_fg_outline_inactive_template"
-# TODO: bg template needs update for R
-if false; then
 generate_qs_bg_dark_style "Gray" "#ff303030" "#ff424242"
 generate_qs_bg_dark_style "TransparentBlack50" "#80000000" "#80303030"
 generate_qs_bg_dark_style "TransparentBlack75" "#b3000000" "#b3303030"
@@ -65,4 +63,3 @@ generate_qs_bg_dark_style "TransparentGray75" "#b3303030" "#b3424242"
 generate_qs_bg_dark_style "FollowSystem" "@*android:color/background_device_default_dark" "@*android:color/background_floating_device_default_dark"
 generate_qs_bg_light_style "TransparentWhite" "#b3ffffff" "#b3eeeeee"
 generate_qs_bg_light_style "FollowSystem" "@*android:color/background_device_default_light" "@*android:color/background_floating_device_default_light"
-fi

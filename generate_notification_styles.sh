@@ -54,8 +54,6 @@ function generate_notif_light_style() {
 # Clean previous makefile
 rm -f "$product_packages_makefile"
 
-# TODO: template needs update for R
-if false; then
 generate_notif_dark_style "Gray" "#ff303030" "#aa000000" "#212121"
 # For transparent styles, we can't use shade = 0 or invalidate won't be called in NotificationStackScrollLayout's updateBackgroundDimming as mCachedBackgroundColor == color
 # #00000001 looks the same though.
@@ -64,7 +62,3 @@ generate_notif_dark_style "TransparentGray75" "#b3303030" "#80000000" "#00000001
 generate_notif_dark_style "TransparentBlack50" "#80000000" "#60000000" "#00000001"
 generate_notif_dark_style "TransparentBlack75" "#b3000000" "#80000000" "#00000001"
 generate_notif_light_style "TransparentWhite" "#b3ffffff" "#80ffffff" "#00000001"
-else
-# Empty
-touch "$product_packages_makefile"
-fi

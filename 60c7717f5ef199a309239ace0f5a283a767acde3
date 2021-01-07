@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05b4e6e8_ceb67490",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1416
+      },
+      "writtenOn": "2021-01-07T14:10:17Z",
+      "side": 1,
+      "message": "Test:\n- Open AICP Extras \u003e Theming \u003e Navbar styles\n- Select an option \u0026 observe the Navigation Softkeys change\n- Observe the change persist through a reboot\n\nImportant:\n- Make sure https://gerrit.aicp-rom.com/c/AICP/frameworks_base/+/107152 is not included in frameworks/base\n- Navigation mode should be 3-button navigation\n\nNotes:\n- NavbarStyle-Stock is dropped as aicpgear will handle stock case\n- Dropped the Navbar suffix on overlay name and moved string to its own file",
+      "revId": "60c7717f5ef199a309239ace0f5a283a767acde3",
+      "serverId": "9f904cbb-a964-4fab-a7dc-5cfc4d5c238b"
+    }
+  ]
+}

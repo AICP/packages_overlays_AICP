@@ -1,6 +1,6 @@
 android_app {
 
-    name: "MiuiPanel",
+    name: "MiuiCompactPanel",
 
     static_libs: ["VolumePluginCommon"],
 

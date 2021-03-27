@@ -13,7 +13,7 @@
 -->
 <resources>
     <dimen name="borderless_button_radius">2dp</dimen>
-    <dimen name="volume_icon_size">24dp</dimen>
+    <dimen name="volume_icon_size">20dp</dimen>
     <dimen name="volume_button_size">48dp</dimen>
     <dimen name="volume_dialog_caption_size">64dp</dimen>
     <dimen name="volume_dialog_elevation">9dp</dimen>

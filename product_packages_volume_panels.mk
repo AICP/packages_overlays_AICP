@@ -1,6 +1,6 @@
 PRODUCT_PACKAGES += \
     AospPanel \
     CompactPanel \
-    MiuiPanel \
+    MiuiCompactPanel \
     OreoPanel \
     TiledPanel

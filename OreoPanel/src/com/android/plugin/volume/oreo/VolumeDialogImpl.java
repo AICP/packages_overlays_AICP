@@ -44,6 +44,7 @@ import android.graphics.Region;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff;
 import android.media.AudioManager;
 import android.media.AudioSystem;
 import android.os.Debug;
@@ -448,6 +449,8 @@ public class VolumeDialogImpl implements VolumeDialog {
         row.header = (TextView) row.view.findViewById(R.id.volume_row_header);
         row.header.setId(20 * row.stream);
         row.slider = (SeekBar) row.view.findViewById(R.id.volume_row_slider);
+        row.slider.setProgressTintMode(PorterDuff.Mode.SRC_ATOP);
+        row.slider.setThumbTintMode(PorterDuff.Mode.SRC_ATOP);
         row.slider.setOnSeekBarChangeListener(new VolumeSeekBarChangeListener(row));
         row.anim = null;
 

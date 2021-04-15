@@ -73,5 +73,5 @@ generate_accent "Teal" "#008577" "#80cbc4"
 generate_accent "Turquoise" "#00C1C1" "#00FFFF"
 generate_accent "Yellow" "#fdd835" "#ffeb3b"
 
-generate_accent_light "Black" "#000000"
-generate_accent_dark "White" "#ffffff"
+generate_accent_light "Black" "#202020"
+generate_accent_dark "White" "#D7DEE6"

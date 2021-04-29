@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a29203ff_d67682b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1416
+      },
+      "writtenOn": "2021-04-29T13:26:51Z",
+      "side": 1,
+      "message": "Without this patch:\n- Some text is unreadable with DND QS tile detail view on dark mode\n\nTest:\n- Compiles\n- Switch to dark mode\n- Observe \"some\" contrast in the details panel",
+      "revId": "ca173b0451ea9000bc70519abd912e3b5d5f8c7a",
+      "serverId": "9f904cbb-a964-4fab-a7dc-5cfc4d5c238b"
+    }
+  ]
+}

@@ -1318,10 +1318,6 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         updateVolumeRowSliderH(row, enableSlider, vlevel, maxChanged);
     }
 
-    private boolean isStreamMuted(final StreamState streamState) {
-        return (mAutomute && streamState.level == streamState.levelMin) || streamState.muted;
-    }
-
     private void updateVolumeRowTintH(VolumeRow row, boolean isActive) {
         if (isActive) {
             row.slider.requestFocus();

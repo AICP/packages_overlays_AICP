@@ -1007,7 +1007,7 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
                 .setInterpolator(new SystemUIInterpolators.LogAccelerateInterpolator())
                 .withEndAction(() -> mHandler.postDelayed(() -> {
                     mIsAnimatingDismiss = false;
-                    if (mDialog.isShown()){
+                    if (mDialog.isShown()) {
                         mWindowManager.removeViewImmediate(mDialog);
                     }
                     mActiveStreamManuallyModified = false;
@@ -1381,6 +1381,10 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         final int vlevel = row.ss.muted && (!isRingStream && !zenMuted) ? 0
                 : row.ss.level;
         updateVolumeRowSliderH(row, enableSlider, vlevel, maxChanged);
+    }
+
+    private boolean isStreamMuted(final StreamState streamState) {
+        return (mAutomute && streamState.level == streamState.levelMin) || streamState.muted;
     }
 
     private void updateVolumeRowTintH(VolumeRow row, boolean isActive) {

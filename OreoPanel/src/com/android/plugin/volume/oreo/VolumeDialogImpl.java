@@ -1030,6 +1030,10 @@ public class VolumeDialogImpl implements VolumeDialog {
         updateVolumeRowSliderH(row, enableSlider, vlevel, maxChanged);
     }
 
+    private boolean isStreamMuted(final StreamState streamState) {
+        return (mAutomute && streamState.level == streamState.levelMin) || streamState.muted;
+    }
+
     private void updateVolumeRowSliderTintH(VolumeRow row, boolean isActive) {
         if (isActive && mExpanded) {
             row.slider.requestFocus();

@@ -592,7 +592,7 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
 
         if (mExpandRows != null) {
             mExpandRows.setOnLongClickListener(v -> {
-                Events.writeEvent(mContext, Events.EVENT_SETTINGS_CLICK);
+                Events.writeEvent(Events.EVENT_SETTINGS_CLICK);
                 Intent intent = new Intent(Settings.Panel.ACTION_VOLUME);
                 dismissH(DISMISS_REASON_SETTINGS_CLICKED);
                 PluginDependency.get(this, ActivityStarter.class).startActivity(intent,
@@ -1017,7 +1017,7 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
                 .setInterpolator(new SystemUIInterpolators.LogAccelerateInterpolator())
                 .withEndAction(() -> mHandler.postDelayed(() -> {
                     mIsAnimatingDismiss = false;
-                    if (mDialog.isShown()){
+                    if (mDialog.isShown()) {
                         mWindowManager.removeViewImmediate(mDialog);
                     }
                     cleanExpandedRows();
@@ -1379,6 +1379,10 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         final int vlevel = row.ss.muted && (!isRingStream && !zenMuted) ? 0
                 : row.ss.level;
         updateVolumeRowSliderH(row, enableSlider, vlevel, maxChanged);
+    }
+
+    private boolean isStreamMuted(final StreamState streamState) {
+        return (mAutomute && streamState.level == streamState.levelMin) || streamState.muted;
     }
 
     private void updateVolumeRowTintH(VolumeRow row, boolean isActive) {

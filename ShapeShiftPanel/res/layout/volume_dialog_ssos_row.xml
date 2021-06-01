@@ -1,0 +1,83 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/volume_dialog_miui_panel_width"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:tag="row"
+    android:theme="@style/qs_theme">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/volume_row_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.Volume.Header"
+            android:textColor="?android:attr/colorControlNormal"
+            android:visibility="gone" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            app:cardCornerRadius="50dp"
+	    app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
+            app:cardElevation="0dp"
+            app:contentPadding="-0dp"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/volume_row_slider_frame"
+                android:layout_width="match_parent"
+                android:layout_height="192dp"
+                android:layoutDirection="rtl">
+
+                <SeekBar
+                    android:id="@+id/volume_row_slider"
+                    android:layout_width="@dimen/custom_volume_dialog_miui_seekbar_height"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:layoutDirection="rtl"
+                    android:paddingTop="0dp"
+                    android:paddingBottom="0dp"
+                    android:progress="10"
+                    android:progressDrawable="@drawable/volume_dialog_seekbar"
+                    android:rotation="-90"
+                    android:thumb="@android:color/transparent" />
+
+                <ImageView
+                    android:layout_width="4dp"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="33dp"
+                    android:layout_marginBottom="48dp"
+                    android:background="@drawable/volume_dialog_background_line"/>
+
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <co.potatoproject.plugin.volume.common.AlphaOptimizedImageButton
+            android:id="@+id/volume_row_icon"
+            style="@style/VolumeButtons"
+            android:layout_width="@dimen/volume_dialog_miui_tap_target_size"
+            android:layout_height="@dimen/volume_dialog_miui_tap_target_size"
+            android:layout_marginTop="-51dp"
+            android:background="@drawable/ripple_drawable_20dp"
+            android:clickable="false"
+            android:soundEffectsEnabled="false"
+            android:tint="@android:color/white" />
+    </LinearLayout>
+
+    <include layout="@layout/volume_dnd_icon_miui" />
+
+</FrameLayout>

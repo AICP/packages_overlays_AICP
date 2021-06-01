@@ -5,4 +5,5 @@ PRODUCT_PACKAGES += \
     OosPanel \
     OreoPanel \
     P404Panel \
+    ShapeShiftPanel \
     TiledPanel

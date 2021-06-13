@@ -63,6 +63,7 @@
         <co.potatoproject.plugin.volume.common.AlphaOptimizedImageButton
             android:id="@+id/volume_row_icon"
             style="@style/VolumeButtons"
+            android:visibility="gone"
             android:layout_width="@dimen/volume_dialog_miui_tap_target_size"
             android:layout_height="@dimen/volume_dialog_miui_tap_target_size"
             android:background="@drawable/ripple_drawable_20dp"
@@ -70,6 +71,17 @@
             android:tint="@android:color/white"
             android:clickable="false"
             android:soundEffectsEnabled="false" />
+
+        <co.potatoproject.plugin.volume.common.AlphaOptimizedImageButton
+           android:id="@+id/volume_row_app_icon"
+            style="@style/VolumeButtons"
+            android:visibility="gone"
+            android:layout_width="@dimen/volume_dialog_miui_tap_target_size"
+            android:layout_height="@dimen/volume_dialog_miui_tap_target_size"
+            android:background="@drawable/ripple_drawable_20dp"
+            android:layout_marginTop="@dimen/volume_dialog_miui_row_icon_margintop"
+            android:soundEffectsEnabled="false"
+            android:scaleType="centerInside" />
     </LinearLayout>
 
     <include layout="@layout/volume_dnd_icon_miui"/>

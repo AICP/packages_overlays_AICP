@@ -39,8 +39,20 @@
                 android:id="@+id/volume_row_icon"
                 style="@style/VolumeButtons"
                 android:layout_width="@dimen/volume_button_size"
+                android:visibility="gone"
                 android:layout_height="@dimen/volume_button_size"
                 android:soundEffectsEnabled="false" />
+
+        <co.potatoproject.plugin.volume.common.AlphaOptimizedImageButton
+            android:id="@+id/volume_row_app_icon"
+            style="@style/VolumeButtons"
+            android:visibility="gone"
+            android:layout_width="@dimen/volume_dialog_app_size"
+            android:layout_height="@dimen/volume_dialog_app_size"
+            android:paddingStart="@dimen/volume_row_app_icon_padding"
+            android:background="@drawable/ripple_drawable_20dp"
+            android:soundEffectsEnabled="false"
+            android:scaleType="centerInside" />
 
         <SeekBar
                 android:id="@+id/volume_row_slider"

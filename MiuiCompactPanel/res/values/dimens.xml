@@ -40,7 +40,5 @@
     <dimen name="volume_row_slider_padding_start">12dp</dimen>
     <dimen name="volume_tool_tip_bottom_margin">32dp</dimen>
     <dimen name="volume_tool_tip_right_margin">76dp</dimen>
-    <dimen name="volume_row_app_icon_padding">1dp</dimen>
-    <dimen name="volume_dialog_tap_target_app_size">38dip</dimen>
-    <dimen name="volume_dialog_app_row_icon_margintop">-50dp</dimen>
+    <dimen name="volume_row_app_icon_padding">8dp</dimen>
 </resources>

@@ -75,6 +75,7 @@
             android:padding="@dimen/volume_row_app_icon_padding"
             android:layout_marginTop="@dimen/volume_dialog_row_icon_margintop"
             android:clickable="false"
+            android:tint="@android:color/white"
             android:soundEffectsEnabled="false"
             android:scaleType="centerInside" />
     </LinearLayout>

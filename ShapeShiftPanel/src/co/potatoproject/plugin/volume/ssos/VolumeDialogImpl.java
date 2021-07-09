@@ -160,7 +160,8 @@ public class VolumeDialogImpl implements VolumeDialog {
     private ViewGroup mODICaptionsView;
     private CaptionsToggleImageButton mODICaptionsIcon;
     private View mMediaOutputView;
-    private ImageButton mMediaOutputIcon;
+    private FrameLayout mMediaOutputIcon;
+    private ImageButton mMediaOutputIconActualite;
     private View mExpandRowsView;
     private ExpandableIndicator mExpandRows;
     private FrameLayout mZenIcon;
@@ -302,6 +303,7 @@ public class VolumeDialogImpl implements VolumeDialog {
         }
 
         mMediaOutputIcon = mDialog.findViewById(R.id.media_output);
+        mMediaOutputIconActualite = mDialog.findViewById(R.id.bluetooth_indicator_container_icon);
 
         mExpandRowsView = mDialog.findViewById(R.id.expandable_indicator_container);
         mExpandRows = mDialog.findViewById(R.id.expandable_indicator);
@@ -312,20 +314,25 @@ public class VolumeDialogImpl implements VolumeDialog {
                 (LinearLayout.LayoutParams) mODICaptionsView.getLayoutParams();
         LinearLayout.LayoutParams buttonsLP =
                 (LinearLayout.LayoutParams) mDialog.findViewById(R.id.main_buttons).getLayoutParams();
+        LinearLayout.LayoutParams outputLP =
+                (LinearLayout.LayoutParams) mMediaOutputIcon.getLayoutParams();
 
         if(!isAudioPanelOnLeftSide()) {
             mainLP.gravity = Gravity.RIGHT;
             mExpandRows.setRotation(90);
             captionsLP.gravity = Gravity.RIGHT;
             buttonsLP.gravity = Gravity.RIGHT;
+            outputLP.gravity = Gravity.RIGHT;
         } else {
             mainLP.gravity = Gravity.LEFT;
             mExpandRows.setRotation(-90);
             captionsLP.gravity = Gravity.LEFT;
             buttonsLP.gravity = Gravity.LEFT;
+            outputLP.gravity = Gravity.LEFT;
         }
 
         mDialog.findViewById(R.id.main).setLayoutParams(mainLP);
+        mMediaOutputIcon.setLayoutParams(outputLP);
         mODICaptionsView.setLayoutParams(captionsLP);
         mDialog.findViewById(R.id.main_buttons).setLayoutParams(buttonsLP);
 
@@ -549,10 +556,10 @@ public class VolumeDialogImpl implements VolumeDialog {
         View dummyButton = mDialog.findViewById(R.id.dummy_button);
 
         if(isBluetoothA2dpConnected()) {
-            mMediaOutputIcon.setVisibility(
+            mMediaOutputIcon.setVisibility(VISIBLE);
+            dummyButton.setVisibility(
                 mActivityManager.getLockTaskModeState() == LOCK_TASK_MODE_NONE &&
                         mExpanded ? VISIBLE : GONE);
-            dummyButton.setVisibility(GONE);
         } else {
             dummyButton.setVisibility(
                 mActivityManager.getLockTaskModeState() == LOCK_TASK_MODE_NONE &&
@@ -567,8 +574,8 @@ public class VolumeDialogImpl implements VolumeDialog {
     }
 
     public void initSettingsH() {
-        if (mMediaOutputIcon != null) {
-            mMediaOutputIcon.setOnClickListener(v -> {
+        if (isBluetoothA2dpConnected()) {
+            mMediaOutputIconActualite.setOnClickListener(v -> {
                 Events.writeEvent(Events.EVENT_SETTINGS_CLICK);
                 Intent intent = new Intent(ACTION_MEDIA_OUTPUT);
                 dismissH(DISMISS_REASON_SETTINGS_CLICKED);

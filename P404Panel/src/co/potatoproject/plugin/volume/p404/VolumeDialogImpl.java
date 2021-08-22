@@ -205,8 +205,7 @@ public class VolumeDialogImpl implements VolumeDialog {
         mActivityManager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
         mAccessibilityMgr = mContext.getSystemService(AccessibilityManager.class);
         mShowActiveStreamOnly = showActiveStreamOnly();
-        mHasSeenODICaptionsTooltip =
-                Prefs.getBoolean(sysuiContext, Prefs.Key.HAS_SEEN_ODI_CAPTIONS_TOOLTIP, false);
+        mHasSeenODICaptionsTooltip = true;
         mLeftVolumeRocker = Settings.System.getInt(mContext.getContentResolver(), Settings.System.VOLUME_PANEL_ON_LEFT, 0) == 1;
         settingsObserver = new SettingsObserver(mHandler);
         settingsObserver.observe();

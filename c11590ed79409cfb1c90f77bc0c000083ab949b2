@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9aaabb5_2c5ae0b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1416
+      },
+      "writtenOn": "2021-08-29T15:32:13Z",
+      "side": 1,
+      "message": "SliderStyle-AOSP is not required, can be removed along with references",
+      "revId": "c11590ed79409cfb1c90f77bc0c000083ab949b2",
+      "serverId": "9f904cbb-a964-4fab-a7dc-5cfc4d5c238b"
+    }
+  ]
+}

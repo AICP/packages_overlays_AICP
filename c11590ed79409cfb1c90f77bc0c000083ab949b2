@@ -16,6 +16,24 @@
       "message": "SliderStyle-AOSP is not required, can be removed along with references",
       "revId": "c11590ed79409cfb1c90f77bc0c000083ab949b2",
       "serverId": "9f904cbb-a964-4fab-a7dc-5cfc4d5c238b"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c68cce7_cd88d5f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3
+      },
+      "writtenOn": "2021-09-02T12:32:02Z",
+      "side": 1,
+      "message": "Agreed. We have Default one and no need AOSP one (which is looks same). \nCan you lpease remove it? after this, topic can be merged.",
+      "parentUuid": "e9aaabb5_2c5ae0b8",
+      "revId": "c11590ed79409cfb1c90f77bc0c000083ab949b2",
+      "serverId": "9f904cbb-a964-4fab-a7dc-5cfc4d5c238b"
     }
   ]
 }

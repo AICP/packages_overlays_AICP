@@ -17,9 +17,6 @@
 
 package co.potatoproject.plugin.volume.p404;
 
-import android.media.AppTrackData;
-import android.database.ContentObserver;
-import android.os.UserHandle;
 import static android.app.ActivityManager.LOCK_TASK_MODE_NONE;
 import static android.media.AudioManager.RINGER_MODE_NORMAL;
 import static android.media.AudioManager.RINGER_MODE_SILENT;
@@ -53,6 +50,7 @@ import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
@@ -67,6 +65,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
+import android.os.UserHandle;
 import android.os.VibrationEffect;
 import android.provider.Settings;
 import android.provider.Settings.Global;
@@ -127,7 +126,7 @@ import java.util.List;
 @Requires(target = VolumeDialog.Callback.class, version = VolumeDialog.Callback.VERSION)
 @Requires(target = VolumeDialogController.class, version = VolumeDialogController.VERSION)
 @Requires(target = ActivityStarter.class, version = ActivityStarter.VERSION)
-public class VolumeDialogImpl implements VolumeDialog {
+public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
     private static final String TAG = Utils.logTag(VolumeDialogImpl.class);
     public static final String ACTION_MEDIA_OUTPUT =
             "com.android.settings.panel.action.MEDIA_OUTPUT";
@@ -189,7 +188,6 @@ public class VolumeDialogImpl implements VolumeDialog {
 
     private SettingsObserver settingsObserver;
     private boolean mExpanded;
-    private boolean mVolumePanelOnLeft;
     private boolean mAppVolume;
 
     public VolumeDialogImpl() {}
@@ -206,7 +204,7 @@ public class VolumeDialogImpl implements VolumeDialog {
         mAccessibilityMgr = mContext.getSystemService(AccessibilityManager.class);
         mShowActiveStreamOnly = showActiveStreamOnly();
         mHasSeenODICaptionsTooltip = true;
-        mVolumePanelOnLeft = Settings.Secure.getInt(mContext.getContentResolver(), Settings.Secure.VOLUME_PANEL_ON_LEFT, 0) == 1;
+        initObserver(pluginContext, sysuiContext);
         settingsObserver = new SettingsObserver(mHandler);
         settingsObserver.observe();
     }
@@ -225,6 +223,11 @@ public class VolumeDialogImpl implements VolumeDialog {
         mController.removeCallback(mControllerCallbackH);
         mHandler.removeCallbacksAndMessages(null);
         settingsObserver.unobserve();
+    }
+
+    @Override
+    protected void onSideChange() {
+        initDialog();
     }
 
     private void initDialog() {
@@ -1698,7 +1701,7 @@ public class VolumeDialogImpl implements VolumeDialog {
     }
 
     private boolean isAudioPanelOnLeftSide() {
-        return mLeftVolumeRocker;
+        return mVolumePanelOnLeft;
     }
 
     private static class VolumeRow {

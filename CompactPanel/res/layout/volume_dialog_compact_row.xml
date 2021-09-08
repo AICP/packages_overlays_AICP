@@ -41,7 +41,7 @@
             android:visibility="gone"
             android:soundEffectsEnabled="false" />
 
-        <co.potatoproject.plugin.volume.common.AlphaOptimizedImageButton
+        <com.android.plugin.volume.common.AlphaOptimizedImageButton
             android:id="@+id/volume_row_app_icon"
             style="@style/VolumeButtons"
             android:visibility="gone"

@@ -28,7 +28,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             app:cardCornerRadius="50dp"
-	    app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
+	          app:cardBackgroundColor="?android:attr/colorBackgroundFloating"
             app:cardElevation="0dp"
             app:contentPadding="-0dp"
             android:layout_height="match_parent">
@@ -66,7 +66,7 @@
         </androidx.cardview.widget.CardView>
 
 
-        <co.potatoproject.plugin.volume.common.AlphaOptimizedImageButton
+        <com.android.plugin.volume.common.AlphaOptimizedImageButton
             android:id="@+id/volume_row_icon"
             style="@style/VolumeButtons"
             android:layout_width="@dimen/volume_dialog_miui_tap_target_size"

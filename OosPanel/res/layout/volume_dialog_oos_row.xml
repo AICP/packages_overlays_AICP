@@ -57,7 +57,7 @@
                 android:rotation="-90" />
         </FrameLayout>
 
-        <co.potatoproject.plugin.volume.common.AlphaOptimizedImageButton
+        <com.android.plugin.volume.common.AlphaOptimizedImageButton
             android:id="@+id/volume_row_icon"
             style="@style/VolumeButtons"
             android:visibility="gone"
@@ -67,7 +67,7 @@
             android:layout_marginBottom="@dimen/volume_dialog_row_margin_bottom"
             android:soundEffectsEnabled="false" />
 
-        <co.potatoproject.plugin.volume.common.AlphaOptimizedImageButton
+        <com.android.plugin.volume.common.AlphaOptimizedImageButton
            android:id="@+id/volume_row_app_icon"
             style="@style/VolumeButtons"
             android:visibility="gone"

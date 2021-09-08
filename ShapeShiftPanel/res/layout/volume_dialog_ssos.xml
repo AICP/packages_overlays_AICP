@@ -61,7 +61,7 @@
                 android:background="@drawable/volume_dialog_ringer_bcg"
                 android:gravity="center">
 
-                <co.potatoproject.plugin.volume.common.AlphaOptimizedImageButton
+                <com.android.plugin.volume.common.AlphaOptimizedImageButton
                     android:layout_width="@dimen/volume_dialog_miui_tap_target_size"
                     android:id="@+id/bluetooth_indicator_container_icon"
                     android:layout_height="@dimen/volume_dialog_miui_tap_target_size"
@@ -96,7 +96,7 @@
                 android:layout_margin="@dimen/volume_dialog_miui_ringer_spacing"
                 android:background="@drawable/volume_dialog_ringer_bcg">
 
-                <co.potatoproject.plugin.volume.common.AlphaOptimizedImageButton
+                <com.android.plugin.volume.common.AlphaOptimizedImageButton
                     android:id="@+id/ringer_icon"
                     style="@style/VolumeButtons"
                     android:layout_width="35dp"
@@ -143,7 +143,7 @@
             android:translationZ="@dimen/volume_dialog_elevation"
             android:background="@drawable/volume_dialog_background"
             android:orientation="vertical">
-		
+
             <LinearLayout
                 android:id="@+id/expandable_indicator_container"
                 android:layout_width="match_parent"
@@ -158,7 +158,7 @@
                     android:layout_height="1dp"
                     android:layout_width="1dp" />
 
-                <co.potatoproject.plugin.volume.common.ExpandableIndicator
+                <com.android.plugin.volume.common.ExpandableIndicator
                     android:id="@+id/expandable_indicator"
                     android:layout_width="@dimen/volume_dialog_miui_tap_target_size"
                     android:layout_height="@dimen/volume_dialog_miui_tap_target_size"
@@ -187,7 +187,7 @@
             android:clipToPadding="false"
             android:translationZ="@dimen/volume_dialog_elevation"
             android:background="@drawable/volume_dialog_background">
-            <co.potatoproject.plugin.volume.common.CaptionsToggleImageButton
+            <com.android.plugin.volume.common.CaptionsToggleImageButton
                 android:id="@+id/odi_captions_icon"
                 android:layout_margin="8dp"
                 android:background="@drawable/ripple_drawable_20dp"

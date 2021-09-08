@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package co.potatoproject.plugin.volume.p404;
+package com.android.plugin.volume.p404;
 
 import static android.app.ActivityManager.LOCK_TASK_MODE_NONE;
 import static android.media.AudioManager.RINGER_MODE_NORMAL;
@@ -32,7 +32,7 @@ import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
-import static co.potatoproject.plugin.volume.common.Events.DISMISS_REASON_SETTINGS_CLICKED;
+import static com.android.plugin.volume.common.Events.DISMISS_REASON_SETTINGS_CLICKED;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
@@ -99,9 +99,9 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import co.potatoproject.plugin.volume.common.*;
+import com.android.plugin.volume.common.*;
 
-import co.potatoproject.plugin.volume.p404.R;
+import com.android.plugin.volume.p404.R;
 
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.PluginDependency;

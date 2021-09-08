@@ -18,7 +18,7 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="co.potatoproject.plugin.volume.ssos">
+    package="com.android.plugin.volume.ssos">
 
     <uses-permission android:name="com.android.systemui.permission.PLUGIN" />
 
@@ -33,7 +33,7 @@
 
         <provider
             android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-            android:authorities="co.potatoproject.plugin.volume.ssos"
+            android:authorities="com.android.plugin.volume.ssos"
             tools:replace="android:authorities"
             android:exported="false"
             android:multiprocess="true" />

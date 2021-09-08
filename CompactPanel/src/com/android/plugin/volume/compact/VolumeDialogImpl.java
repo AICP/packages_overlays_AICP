@@ -393,7 +393,7 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         }
 
         void observe() {
-            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.SHOW_APP_VOLUME), false, this, UserHandle.USER_ALL);
+            mContext.getContentResolver().registerContentObserver(Settings.Secure.getUriFor(Settings.Secure.SHOW_APP_VOLUME), false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -404,7 +404,7 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         }
 
         public void update() {
-             mAppVolume = Settings.System.getIntForUser(mContext.getContentResolver(), Settings.System.SHOW_APP_VOLUME, 0, UserHandle.USER_CURRENT) == 1;
+             mAppVolume = Settings.Secure.getIntForUser(mContext.getContentResolver(), Settings.Secure.SHOW_APP_VOLUME, 0, UserHandle.USER_CURRENT) == 1;
             // updateRowsH(getActiveRow());
         }
     }

@@ -190,7 +190,7 @@ public class VolumeDialogImpl implements VolumeDialog {
 
     private SettingsObserver settingsObserver;
     private boolean mExpanded;
-    private boolean mLeftVolumeRocker;
+    private boolean mVolumePanelOnLeft;
     private boolean mAppVolume;
 
     public VolumeDialogImpl() {}
@@ -208,7 +208,7 @@ public class VolumeDialogImpl implements VolumeDialog {
         mShowActiveStreamOnly = showActiveStreamOnly();
         mHasSeenODICaptionsTooltip =
                 Prefs.getBoolean(sysuiContext, Prefs.Key.HAS_SEEN_ODI_CAPTIONS_TOOLTIP, false);
-        mLeftVolumeRocker = Settings.System.getInt(mContext.getContentResolver(), Settings.System.VOLUME_PANEL_ON_LEFT, 0) == 1;
+        mVolumePanelOnLeft = Settings.Secure.getInt(mContext.getContentResolver(), Settings.Secure.VOLUME_PANEL_ON_LEFT, 0) == 1;
         settingsObserver = new SettingsObserver(mHandler);
         settingsObserver.observe();
     }
@@ -384,7 +384,7 @@ public class VolumeDialogImpl implements VolumeDialog {
         }
 
         void observe() {
-            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.SHOW_APP_VOLUME), false, this, UserHandle.USER_ALL);
+            mContext.getContentResolver().registerContentObserver(Settings.Secure.getUriFor(Settings.Secure.SHOW_APP_VOLUME), false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -397,7 +397,7 @@ public class VolumeDialogImpl implements VolumeDialog {
 
 
         public void update() {
-            mAppVolume = Settings.System.getIntForUser(mContext.getContentResolver(), Settings.System.SHOW_APP_VOLUME, 0, UserHandle.USER_CURRENT) == 1;
+            mAppVolume = Settings.Secure.getIntForUser(mContext.getContentResolver(), Settings.Secure.SHOW_APP_VOLUME, 0, UserHandle.USER_CURRENT) == 1;
      }
 
   }

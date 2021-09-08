@@ -187,7 +187,7 @@ public class VolumeDialogImpl implements VolumeDialog {
     public void onCreate(Context sysuiContext, Context pluginContext) {
         mSysUIR = new SysUIR(pluginContext);
         mContext = pluginContext;
-        mSysUIContext = 
+        mSysUIContext =
                 new ContextThemeWrapper(sysuiContext, mSysUIR.style("qs_theme", sysuiContext));
         mController = PluginDependency.get(this, VolumeDialogController.class);
         mKeyguard = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
@@ -223,7 +223,7 @@ public class VolumeDialogImpl implements VolumeDialog {
 
     private void initDialog() {
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
-        
+
         mSysUIContext.getTheme().applyStyle(mSysUIContext.getThemeResId(), true);
         mSysUIContext.getTheme().rebase();
         mContext.getTheme().setTo(mSysUIContext.getTheme());
@@ -337,7 +337,7 @@ public class VolumeDialogImpl implements VolumeDialog {
         }
 
         void observe() {
-            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.SHOW_APP_VOLUME), false, this, UserHandle.USER_ALL);
+            mContext.getContentResolver().registerContentObserver(Settings.Secure.getUriFor(Settings.Secure.SHOW_APP_VOLUME), false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -348,11 +348,11 @@ public class VolumeDialogImpl implements VolumeDialog {
         }
 
         public void update() {
-             mAppVolume = Settings.System.getIntForUser(mContext.getContentResolver(), Settings.System.SHOW_APP_VOLUME, 0, UserHandle.USER_CURRENT) == 1;
+             mAppVolume = Settings.Secure.getIntForUser(mContext.getContentResolver(), Settings.Secure.SHOW_APP_VOLUME, 0, UserHandle.USER_CURRENT) == 1;
             // updateRowsH(getActiveRow());
         }
     }
-    
+
     private final OnComputeInternalInsetsListener mInsetsListener = internalInsetsInfo -> {
         internalInsetsInfo.touchableRegion.setEmpty();
         internalInsetsInfo.setTouchableInsets(InternalInsetsInfo.TOUCHABLE_INSETS_REGION);

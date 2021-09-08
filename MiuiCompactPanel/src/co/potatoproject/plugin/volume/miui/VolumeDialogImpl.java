@@ -467,9 +467,9 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         VolumeRow row = new VolumeRow();
         initRow(row, stream, iconRes, iconMuteRes, important, defaultStream);
         if (!isAudioPanelOnLeftSide()) {
-            mDialogRowsView.addView(row.view);
-        } else {
             mDialogRowsView.addView(row.view, 0);
+        } else {
+            mDialogRowsView.addView(row.view);
         }
         mRows.add(row);
     }
@@ -1755,7 +1755,7 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
     }
 
     private boolean isAudioPanelOnLeftSide() {
-        return mPanelOnLeftSide;
+        return mVolumePanelOnLeft;
     }
 
     private static class VolumeRow {

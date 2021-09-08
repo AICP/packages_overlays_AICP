@@ -18,6 +18,9 @@
 
 package com.android.plugin.volume.aosp;
 
+import android.media.AppTrackData;
+import android.database.ContentObserver;
+import android.os.UserHandle;
 import static android.app.ActivityManager.LOCK_TASK_MODE_NONE;
 import static android.media.AudioManager.RINGER_MODE_NORMAL;
 import static android.media.AudioManager.RINGER_MODE_SILENT;
@@ -58,8 +61,10 @@ import android.graphics.Rect;
 import android.graphics.Region;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff;
 import android.media.AudioManager;
 import android.media.AudioSystem;
+import android.media.AppTrackData;
 import android.os.Debug;
 import android.os.Handler;
 import android.os.Looper;
@@ -168,7 +173,7 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
     private AccessibilityManager mAccessibilityMgr;
     private final Object mSafetyWarningLock = new Object();
     private final Accessibility mAccessibility = new Accessibility();
-
+    private final List<VolumeRow> mAppRows = new ArrayList<>();
     private boolean mShowing;
     private boolean mShowA11yStream;
 
@@ -186,7 +191,9 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
     private ViewStub mODICaptionsTooltipViewStub;
     private View mODICaptionsTooltipView = null;
 
+    private SettingsObserver settingsObserver;
     private boolean mExpanded;
+    private boolean mAppVolume;
 
     public VolumeDialogImpl() {}
 
@@ -201,9 +208,10 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         mActivityManager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
         mAccessibilityMgr = mContext.getSystemService(AccessibilityManager.class);
         mShowActiveStreamOnly = showActiveStreamOnly();
-        mHasSeenODICaptionsTooltip =
-                Prefs.getBoolean(sysuiContext, Prefs.Key.HAS_SEEN_ODI_CAPTIONS_TOOLTIP, false);
+        mHasSeenODICaptionsTooltip = true;
         initObserver(pluginContext, sysuiContext);
+        settingsObserver = new SettingsObserver(mHandler);
+        settingsObserver.observe();
     }
 
     public void init(int windowType, Callback callback) {
@@ -224,6 +232,7 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
     public void destroy() {
         mController.removeCallback(mControllerCallbackH);
         mHandler.removeCallbacksAndMessages(null);
+        settingsObserver.unobserve();
     }
 
     private void initDialog() {
@@ -376,6 +385,33 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         initODICaptionsH();
     }
 
+    private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void unobserve() {
+            mContext.getContentResolver().unregisterContentObserver(this);
+        }
+
+        void observe() {
+            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.SHOW_APP_VOLUME), false, this, UserHandle.USER_ALL);
+            update();
+        }
+
+
+        @Override
+        public void onChange(boolean selfChange) {
+            update();
+            initDialog();
+        }
+
+
+        public void update() {
+            mAppVolume = Settings.System.getIntForUser(mContext.getContentResolver(), Settings.System.SHOW_APP_VOLUME, 0, UserHandle.USER_CURRENT) == 1;
+     }
+
+  }
     private final OnComputeInternalInsetsListener mInsetsListener = internalInsetsInfo -> {
         internalInsetsInfo.touchableRegion.setEmpty();
         internalInsetsInfo.setTouchableInsets(InternalInsetsInfo.TOUCHABLE_INSETS_REGION);
@@ -385,7 +421,7 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         int[] dialogLocation = new int[2];
         mDialogView.getLocationInWindow(dialogLocation);
         internalInsetsInfo.touchableRegion.set(new Region(
-                mainLocation[0],
+                mainLocation[0] - main.getWidth(),
                 dialogLocation[1],
                 mainLocation[0] + main.getWidth(),
                 dialogLocation[1] + mDialogView.getHeight()
@@ -434,12 +470,47 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         if (D.BUG) Slog.d(TAG, "Adding row for stream " + stream);
         VolumeRow row = new VolumeRow();
         initRow(row, stream, iconRes, iconMuteRes, important, defaultStream);
-        if (!isAudioPanelOnLeftSide()) {
-            mDialogRowsView.addView(row.view, 0);
-        } else {
+        if(!isAudioPanelOnLeftSide()) {
             mDialogRowsView.addView(row.view);
+        } else {
+            mDialogRowsView.addView(row.view, 0);
         }
         mRows.add(row);
+    }
+
+    private void addAppRow(AppTrackData data) {
+        VolumeRow row = new VolumeRow();
+        initAppRow(row, data);
+            mDialogRowsView.addView(row.view);
+        mAppRows.add(row);
+    }
+
+    @SuppressLint("InflateParams")
+    private void initAppRow(final VolumeRow row, final AppTrackData data) {
+        row.view = LayoutInflater.from(mContext).inflate(R.layout.volume_dialog_aosp_row, null);
+
+        row.packageName = data.getPackageName();
+        row.isAppVolumeRow = true;
+
+        row.view.setTag(row);
+        row.slider = row.view.findViewById(R.id.volume_row_slider);
+        row.slider.setOnSeekBarChangeListener(new VolumeSeekBarChangeListener(row));
+
+        row.appMuted = data.isMuted();
+        row.slider.setProgress((int) (data.getVolume() * 100));
+
+        row.dndIcon = row.view.findViewById(R.id.dnd_icon);
+        row.dndIcon.setVisibility(View.GONE);
+
+        row.icon = row.view.findViewById(R.id.volume_row_app_icon);
+        row.icon.setVisibility(View.VISIBLE);
+        PackageManager pm = mContext.getPackageManager();
+        try {
+            row.icon.setImageDrawable(pm.getApplicationIcon(row.packageName));
+        } catch (PackageManager.NameNotFoundException e) {
+            row.icon.setImageDrawable(pm.getDefaultActivityIcon());
+            Log.e(TAG, "Failed to get icon of " + row.packageName, e);
+        }
     }
 
     private void addExistingRows() {
@@ -460,7 +531,9 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
     private void cleanExpandedRows() {
         for (int i = mRows.size() - 1; i >= 0; i--) {
             final VolumeRow row = mRows.get(i);
-            if (row.stream == AudioManager.STREAM_RING || row.stream == AudioManager.STREAM_ALARM) {
+            if (row.stream == AudioManager.STREAM_RING
+                   || row.stream == AudioManager.STREAM_NOTIFICATION
+                   || row.stream == AudioManager.STREAM_ALARM) {
                 removeRow(row);
             }
         }
@@ -529,12 +602,15 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         }
         row.dndIcon = row.view.findViewById(R.id.dnd_icon);
         row.slider = row.view.findViewById(R.id.volume_row_slider);
+        row.slider.setProgressTintMode(PorterDuff.Mode.SRC_ATOP);
+        row.slider.setThumbTintMode(PorterDuff.Mode.SRC_ATOP);
         row.slider.setOnSeekBarChangeListener(new VolumeSeekBarChangeListener(row));
 
         row.anim = null;
 
         row.icon = row.view.findViewById(R.id.volume_row_icon);
         Drawable iconResDrawable = mSysUIContext.getDrawable(iconRes);
+        row.icon.setVisibility(View.VISIBLE);
         row.icon.setImageDrawable(iconResDrawable);
         if (row.stream != AudioSystem.STREAM_ACCESSIBILITY) {
             row.icon.setOnClickListener(v -> {
@@ -574,6 +650,11 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         }
     }
 
+    private boolean shouldShowNotificationStream() {
+        ContentResolver ns = mContext.getContentResolver();
+        return Settings.Secure.getInt(ns, Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+    }
+
     public void initSettingsH() {
         if (mMediaOutputIcon != null) {
             mMediaOutputIcon.setOnClickListener(v -> {
@@ -592,10 +673,8 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         }
         if (mExpandRows != null) {
             mExpandRows.setOnLongClickListener(v -> {
-                rescheduleTimeoutH();
                 Events.writeEvent(Events.EVENT_SETTINGS_CLICK);
-                Intent intent = new Intent(Settings.ACTION_SOUND_SETTINGS);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent intent = new Intent(Settings.Panel.ACTION_VOLUME);
                 dismissH(DISMISS_REASON_SETTINGS_CLICKED);
                 PluginDependency.get(this, ActivityStarter.class).startActivity(intent,
                         true /* dismissShade */);
@@ -608,6 +687,10 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
                             mSysUIR.drawable("ic_volume_ringer_mute"), true, false);
                     addRow(AudioManager.STREAM_ALARM, mSysUIR.drawable("ic_volume_alarm"),
                             mSysUIR.drawable("ic_volume_alarm_mute"), true, false);
+                if (!shouldShowNotificationStream()) {
+                    addRow(AudioManager.STREAM_NOTIFICATION, mSysUIR.drawable("ic_volume_notification"),
+                            mSysUIR.drawable("ic_volume_notification_mute"), true, false);
+                }
                     updateAllActiveRows();
                     mExpanded = true;
                     updateOutputSwitcherVisibility();
@@ -616,9 +699,29 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
                     mExpanded = false;
                     updateOutputSwitcherVisibility();
                 }
+                if (mAppVolume) {
+                    updateAppRows();
+                }
                 mExpandRows.setExpanded(mExpanded);
             });
         }
+    }
+    private void updateAppRows() {
+        for (int i = mAppRows.size() - 1; i >= 0; i--) {
+            final VolumeRow row = mAppRows.get(i);
+            removeAppRow(row);
+        }
+        List<AppTrackData> trackDatas = mController.getAudioManager().listAppTrackDatas();
+        for (AppTrackData data : trackDatas) {
+            if (data.isActive()) {
+                addAppRow(data);
+            }
+        }
+    }
+
+    private void removeAppRow(VolumeRow volumeRow) {
+        mAppRows.remove(volumeRow);
+        mDialogRowsView.removeView(volumeRow.view);
     }
 
     public void initRingerH() {
@@ -930,7 +1033,7 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
                 .setInterpolator(new SystemUIInterpolators.LogAccelerateInterpolator())
                 .withEndAction(() -> mHandler.postDelayed(() -> {
                     mIsAnimatingDismiss = false;
-                    if (mDialog.isShown()){
+                    if (mDialog.isShown()) {
                         mWindowManager.removeViewImmediate(mDialog);
                     }
                     cleanExpandedRows();
@@ -1316,8 +1419,8 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         }
         boolean useActiveColoring = isActive && row.slider.isEnabled();
         final ColorStateList tint = useActiveColoring
-                ? Utils.getColorAccent(mContext)
-                : Utils.getColorAttr(mContext, android.R.attr.colorForeground);
+                ? Utils.getColorAccent(mSysUIContext)
+                : Utils.getColorAttr(mSysUIContext, android.R.attr.colorForeground);
         final int alpha = useActiveColoring
                 ? Color.alpha(tint.getDefaultColor())
                 : getAlphaAttr(android.R.attr.secondaryContentAlpha);
@@ -1568,9 +1671,13 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             rescheduleTimeoutH();
-            if (mRow.ss == null) return;
             if (D.BUG) Log.d(TAG, AudioSystem.streamToString(mRow.stream)
                     + " onProgressChanged " + progress + " fromUser=" + fromUser);
+            if (mRow.isAppVolumeRow) {
+                mController.getAudioManager().setAppVolume(mRow.packageName, progress * 0.01f);
+                return;
+            }
+            if (mRow.ss == null) return;
             if (!fromUser) return;
             if (mRow.ss.levelMin > 0) {
                 final int minProgress = mRow.ss.levelMin * 100;
@@ -1594,15 +1701,17 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
 
         @Override
         public void onStartTrackingTouch(SeekBar seekBar) {
+            mRow.tracking = true;
+            if (mRow.isAppVolumeRow) return;
             if (D.BUG) Log.d(TAG, "onStartTrackingTouch"+ " " + mRow.stream);
             mController.setActiveStream(mRow.stream);
-            mRow.tracking = true;
         }
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
             if (D.BUG) Log.d(TAG, "onStopTrackingTouch"+ " " + mRow.stream);
             mRow.tracking = false;
+            if (mRow.isAppVolumeRow) return;
             mRow.userAttempt = SystemClock.uptimeMillis();
             final int userLevel = getImpliedLevel(seekBar, seekBar.getProgress());
             Events.writeEvent(Events.EVENT_TOUCH_LEVEL_DONE, mRow.stream, userLevel);
@@ -1657,5 +1766,9 @@ public class VolumeDialogImpl extends PanelSideAware implements VolumeDialog {
         private int animTargetProgress;
         private int lastAudibleLevel = 2;
         private FrameLayout dndIcon;
+        /* for change app's volume */
+        private String packageName;
+        private boolean isAppVolumeRow = false;
+        private boolean appMuted;
     }
 }

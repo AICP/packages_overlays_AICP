@@ -14,4 +14,8 @@
 <resources>
     <dimen name="volume_oreo_row_slider_height">48dp</dimen>
     <dimen name="volume_dialog_oreo_panel_width">416dp</dimen>
+
+    <dimen name="volume_row_app_icon_padding">13dp</dimen>
+    <dimen name="volume_dialog_row_margin_bottom">8dp</dimen>
+    <dimen name="volume_dialog_app_size">40dp</dimen>
 </resources>

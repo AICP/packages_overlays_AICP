@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="nez_contorl_text_style_descriptions">
+        <item name="android:textSize">11.3sp</item>
+        <item name="android:lineSpacingMultiplier">1.04</item>
+    </style>
+
+</resources>

@@ -79,7 +79,9 @@
             android:layout_width="@dimen/volume_dialog_miui_tap_target_size"
             android:layout_height="@dimen/volume_dialog_miui_tap_target_size"
             android:background="@drawable/ripple_drawable_20dp"
-            android:layout_marginTop="@dimen/volume_dialog_miui_row_icon_margintop"
+            android:layout_marginTop="-51dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:soundEffectsEnabled="false"
             android:scaleType="centerInside" />
     </LinearLayout>

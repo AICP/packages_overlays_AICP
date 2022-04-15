@@ -1,6 +1,7 @@
 # include packages/overlays/AICP/product_packages_accent.mk
 include packages/overlays/AICP/product_packages_corner_radius.mk
 include packages/overlays/AICP/product_packages_icon_pack_android.mk
+include packages/overlays/AICP/product_packages_icon_pack_sysui.mk
 include packages/overlays/AICP/product_packages_icon_shapes.mk
 # include packages/overlays/AICP/product_packages_background_themes.mk
 include packages/overlays/AICP/product_packages_navbar_styles.mk

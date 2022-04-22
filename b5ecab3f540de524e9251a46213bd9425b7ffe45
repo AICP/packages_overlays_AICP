@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e047dff_4bf58b3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1416
+      },
+      "writtenOn": "2022-04-22T14:48:32Z",
+      "side": 1,
+      "message": "s-overlay-icon-packs topic works similar to the functionality in A11",
+      "revId": "b5ecab3f540de524e9251a46213bd9425b7ffe45",
+      "serverId": "9f904cbb-a964-4fab-a7dc-5cfc4d5c238b"
+    }
+  ]
+}

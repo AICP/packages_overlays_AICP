@@ -4,6 +4,7 @@ include packages/overlays/AICP/product_packages_icon_pack.settings.mk
 include packages/overlays/AICP/product_packages_icon_pack_android.mk
 include packages/overlays/AICP/product_packages_icon_pack_launcher.mk
 include packages/overlays/AICP/product_packages_icon_pack_sysui.mk
+include packages/overlays/AICP/product_packages_icon_pack_themepicker.mk
 include packages/overlays/AICP/product_packages_icon_shapes.mk
 # include packages/overlays/AICP/product_packages_background_themes.mk
 include packages/overlays/AICP/product_packages_navbar_styles.mk

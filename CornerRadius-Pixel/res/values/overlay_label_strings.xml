@@ -17,5 +17,5 @@
  */
 -->
 <resources>
-    <string name="theming_slider_style_rui">RUI</string>
+    <string name="theming_corner_radius_pixel">Pixel</string>
 </resources>

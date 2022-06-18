@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96385de2_0c02384c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 774
+      },
+      "writtenOn": "2022-06-18T14:57:15Z",
+      "side": 1,
+      "message": "shouldn\u0027t change other roms copyright, lazy sed :)",
+      "revId": "5ff4b50ddbfe4f10be8435477c76f81917eba441",
+      "serverId": "9f904cbb-a964-4fab-a7dc-5cfc4d5c238b"
+    }
+  ]
+}

@@ -11,7 +11,7 @@ include packages/overlays/AICP/product_packages_navbar_styles.mk
 # include packages/overlays/AICP/product_packages_notif_styles.mk
 # include packages/overlays/AICP/product_packages_qs_styles.mk
 # include packages/overlays/AICP/product_packages_slider_styles.mk
-# include packages/overlays/AICP/product_packages_nav_overlays.mk
+include packages/overlays/AICP/product_packages_nav_overlays.mk
 include packages/overlays/AICP/product_packages_fonts.mk
 # include packages/overlays/AICP/product_packages_volume_panels.mk
 

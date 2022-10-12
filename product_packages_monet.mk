@@ -3,3 +3,4 @@ PRODUCT_PACKAGES += \
     AndroidEspressoThemeOverlay \
     AndroidSnowPaintDropThemeOverlay \
     AndroidVividThemeOverlay \
+    AndroidClearThemeOverlay \

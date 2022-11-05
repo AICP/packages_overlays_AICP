@@ -4,4 +4,5 @@ PRODUCT_PACKAGES += \
     IconPackKaiSystemUIOverlay \
     IconPackRoundedSystemUIOverlay \
     IconPackSamSystemUIOverlay \
-    IconPackVictorSystemUIOverlay
+    IconPackVictorSystemUIOverlay \
+    NoCombinedIconsOverlay

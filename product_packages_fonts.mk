@@ -7,4 +7,5 @@ PRODUCT_PACKAGES += \
     FontSnigletOverlay \
     FontSignikaOverlay \
     FontOxaniumOverlay \
-    FontInterOverlay
+    FontInterOverlay \
+    FontOnePlusOverlay \

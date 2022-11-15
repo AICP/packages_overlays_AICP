@@ -9,3 +9,4 @@ PRODUCT_PACKAGES += \
     FontOxaniumOverlay \
     FontInterOverlay \
     FontOnePlusOverlay \
+    FontOppoSansOverlay \

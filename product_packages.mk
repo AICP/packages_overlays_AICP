@@ -15,8 +15,8 @@ include packages/overlays/AICP/product_packages_monet.mk
 # include packages/overlays/AICP/product_packages_nav_overlays.mk
 include packages/overlays/AICP/product_packages_fonts.mk
 # include packages/overlays/AICP/product_packages_volume_panels.mk
-# UDFPS animations
-include packages/overlays/AICP/product_packages_UdfpsAnimations.mk
+# UDFPS animations and icons
+include packages/overlays/AICP/product_packages_Udfps.mk
 
 # Lawnicons
 $(call inherit-product-if-exists, vendor/lawnicons/overlay.mk)

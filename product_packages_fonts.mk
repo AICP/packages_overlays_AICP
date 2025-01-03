@@ -4,6 +4,7 @@ PRODUCT_PACKAGES += \
     FontComfortaaOverlay \
     FontCaviarDreamsOverlay \
     FontExotwoOverlay \
+    FontHarmonySansOverlay \
     FontSnigletOverlay \
     FontSignikaOverlay \
     FontOxaniumOverlay \

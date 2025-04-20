@@ -97,4 +97,5 @@
     <string name="theming_corner_radius_round_2_2">Rounded 2</string>
     <string name="theming_corner_radius_round_4_8">Rounded 4</string>
     <string name="theming_corner_radius_round_8_16">Rounded 8</string>
+    <string name="theming_corner_radius_pixel">Pixel</string>
 </resources>

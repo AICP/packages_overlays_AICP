@@ -1,0 +1,8 @@
+runtime_resource_overlay {
+    name: "QsBgDark-TransparentBlack50",
+    theme: "QsBgDark-TransparentBlack50",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current",
+}
+

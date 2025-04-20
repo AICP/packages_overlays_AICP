@@ -1,0 +1,8 @@
+runtime_resource_overlay {
+    name: "AccentLight-Teal",
+    theme: "AccentLight-Teal",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current",
+}
+

@@ -1,0 +1,8 @@
+runtime_resource_overlay {
+    name: "IconShape-RoundedRect",
+    theme: "IconShape-RoundedRect",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current",
+}
+

@@ -1,0 +1,8 @@
+runtime_resource_overlay {
+    name: "AccentDark-Yellow",
+    theme: "AccentDark-Yellow",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current",
+}
+

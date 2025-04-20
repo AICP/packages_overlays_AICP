@@ -1,0 +1,8 @@
+runtime_resource_overlay {
+    name: "AccentLight-GreenLight",
+    theme: "AccentLight-GreenLight",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current",
+}
+

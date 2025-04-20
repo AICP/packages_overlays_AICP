@@ -1,0 +1,8 @@
+runtime_resource_overlay {
+    name: "QsIconsFg-Outline-System",
+    theme: "QsIconsFg-Outline-System",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current",
+}
+

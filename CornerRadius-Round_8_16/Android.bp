@@ -1,0 +1,8 @@
+runtime_resource_overlay {
+    name: "CornerRadius-Round_8_16",
+    theme: "CornerRadius-Round_8_16",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current",
+}
+

@@ -1,0 +1,10 @@
+runtime_resource_overlay {
+    name: "NavbarStyle-TecnoCamon",
+
+    theme: "NavbarStyle-TecnoCamon",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current",
+    privileged: false,
+
+}

@@ -1,0 +1,8 @@
+runtime_resource_overlay {
+    name: "AccentLight-Amber",
+    theme: "AccentLight-Amber",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current",
+}
+

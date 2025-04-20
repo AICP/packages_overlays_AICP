@@ -1,0 +1,9 @@
+runtime_resource_overlay {
+    name: "ImmersiveNavigationOverlay",
+
+    theme: "ImmersiveNavigationOverlay",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current",
+
+}

@@ -1,0 +1,9 @@
+runtime_resource_overlay {
+    name: "AndroidBlackThemeOverlay",
+
+    theme: "AndroidBlackTheme",
+    product_specific: true,
+
+    sdk_version: "current",
+
+}

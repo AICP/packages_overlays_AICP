@@ -1,0 +1,8 @@
+runtime_resource_overlay {
+    name: "AccentDark-Purple",
+    theme: "AccentDark-Purple",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current",
+}
+

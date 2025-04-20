@@ -90,7 +90,7 @@ function generate_overlay() {
 
 
     # --- Makefile ---
-    makefile="$target_dir/Android.mk"
+    makefile="$target_dir/Android.bp"
 
     if [ ! -z "$dependency_package" ]; then
         dependency_res='$(TARGET_OUT_INTERMEDIATES)/APPS/'"$dependency_package"'_intermediates/package.apk'
@@ -98,22 +98,19 @@ function generate_overlay() {
         dependency_res=
     fi
 
-    echo 'LOCAL_PATH:= $(call my-dir)' > $makefile
-    echo 'include $(CLEAR_VARS)' >> $makefile
+    echo 'runtime_resource_overlay {' > $makefile
+    echo "    name: \"$name\"," >> $makefile
+    echo "    theme: \"$name\"," >> $makefile
+    echo '    product_specific: true,' >> $makefile
+    echo '    certificate: "platform",' >> $makefile
+    echo '    sdk_version: "current",' >> $makefile
+    echo '}' >> $makefile
+    # if [ ! -z "$dependency_res" ]; then
+    #     echo "WARN: Setting dependency for $overlay_package_name to $dependency_package not supported since R!"
+    #     #echo "LOCAL_RESOURCE_DEPENDENCIES := $dependency_res" >> $makefile
+    #     #echo "LOCAL_AAPT_FLAGS := -I $dependency_res" >> $makefile
+    # fi
     echo '' >> $makefile
-    echo "LOCAL_RRO_THEME := $name" >> $makefile
-    echo 'LOCAL_PRODUCT_MODULE := true' >> $makefile
-    echo 'LOCAL_CERTIFICATE := platform' >> $makefile
-    echo 'LOCAL_SDK_VERSION := current' >> $makefile
-    echo 'LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res' >> $makefile
-    echo "LOCAL_PACKAGE_NAME := $name" >> $makefile
-    if [ ! -z "$dependency_res" ]; then
-        echo "WARN: Setting dependency for $overlay_package_name to $dependency_package not supported since R!"
-        #echo "LOCAL_RESOURCE_DEPENDENCIES := $dependency_res" >> $makefile
-        #echo "LOCAL_AAPT_FLAGS := -I $dependency_res" >> $makefile
-    fi
-    echo '' >> $makefile
-    echo 'include $(BUILD_RRO_PACKAGE)' >> $makefile
 
 
     # --- Manifest ---

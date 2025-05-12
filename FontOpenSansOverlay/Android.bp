@@ -21,8 +21,6 @@ runtime_resource_overlay {
 
     product_specific: true,
 
-    srcs: ["**/*.java"],
-
     sdk_version: "current",
 
 }

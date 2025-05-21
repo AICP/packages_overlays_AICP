@@ -4,7 +4,6 @@ runtime_resource_overlay {
     theme: "NavbarStyle-TecnoCamon",
     product_specific: true,
     certificate: "platform",
-    sdk_version: "current",
-    privileged: false,
+    sdk_version: "current"
 
 }

@@ -1,0 +1,9 @@
+runtime_resource_overlay {
+    name: "NavbarStyle-OneUi",
+
+    theme: "NavbarStyle-OneUi",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current"
+
+}

@@ -1,0 +1,9 @@
+runtime_resource_overlay {
+    name: "NavbarStyle-Asus",
+
+    theme: "NavbarStyle-Asus",
+    product_specific: true,
+    certificate: "platform",
+    sdk_version: "current"
+
+}

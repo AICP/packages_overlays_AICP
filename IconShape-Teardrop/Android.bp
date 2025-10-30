@@ -1,8 +1,0 @@
-runtime_resource_overlay {
-    name: "IconShape-Teardrop",
-    theme: "IconShape-Teardrop",
-    product_specific: true,
-    certificate: "platform",
-    sdk_version: "current",
-}
-

@@ -1,8 +1,0 @@
-runtime_resource_overlay {
-    name: "IconShape-Squircle",
-    theme: "IconShape-Squircle",
-    product_specific: true,
-    certificate: "platform",
-    sdk_version: "current",
-}
-

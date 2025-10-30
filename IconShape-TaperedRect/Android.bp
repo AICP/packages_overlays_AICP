@@ -1,8 +1,0 @@
-runtime_resource_overlay {
-    name: "IconShape-TaperedRect",
-    theme: "IconShape-TaperedRect",
-    product_specific: true,
-    certificate: "platform",
-    sdk_version: "current",
-}
-
